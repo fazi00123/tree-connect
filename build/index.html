@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../build/assets/css/style.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
+</head>
+<body class="bg-[#304B68]">
+  <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 bg-center bg-no-repeat 2xl:h-[1080px] lg:h-[780px] h-[580px]" style="background-image: url('./assets/img/navbg.png');">
+    <!-- Main Navbar Container -->
+    <div class="flex justify-between items-center bg-[#3F6893] px-8 py-5 rounded-[40px]">
+      <!-- Logo -->
+      <div>
+        <img src="../build/assets/img/logo1.png" alt="Logo">
+      </div>
+  
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:block">
+        <ul class="flex xl:space-x-14 space-x-10">
+          <li><a href="#" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Home</a></li>
+          <li><a href="#" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Our services</a></li>
+          <li><a href="#" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Our story</a></li>
+          <li><a href="#" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Contact us</a></li>
+        </ul>
+      </div>
+  
+      <!-- Login Button (Hidden on Mobile) -->
+      <div class="hidden lg:block">
+        <button class="text-[#FFFFFF] xl:text-lg text-base xl:py-3 xl:px-16 lg:px-10 lg:py-2 py-3 px-16 border-2 border-white rounded-full">Login</button>
+      </div>
+  
+      <!-- Mobile Hamburger Icon -->
+      <div class="lg:hidden">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden mt-5 transition-all duration-300 ease-in-out bg-[#3F6893] rounded-3xl px-6 py-5">
+      <ul class="flex flex-col space-y-4 text-center">
+        <li><a href="#" class="text-[#D3D3D3] text-base hover:text-white">Home</a></li>
+        <li><a href="#" class="text-[#D3D3D3] text-base hover:text-white">Our services</a></li>
+        <li><a href="#" class="text-[#D3D3D3] text-base hover:text-white">Our story</a></li>
+        <li><a href="#" class="text-[#D3D3D3] text-base hover:text-white">Contact us</a></li>
+        <li><button class="mt-3 text-white py-2 px-16 border-2 border-white rounded-full">Login</button></li>
+      </ul>
+    </div>
+  
+    <!-- Hero Content -->
+    <div class="text-center 2xl:pt-16 pt-10">
+      <div>
+        <h1 class="2xl:text-[90px] xl:text-6xl md:text-5xl text-4xl text-white 2xl:leading-[100px] xl:leading-[80px] md:leading-[60px]">
+          From idea to impact. <br> We grow what you build.
+        </h1>
+        <p class="2xl:text-[26px] lg:text-xl text-base text-[#D3D3D3] pt-2 2xl:leading-[44px] lg:leading-8 leading-7">
+          TreeConnect supports you in tackling your <br> strategic and operational challenges.
+        </p>
+      </div>
+      <div class="xl:pt-16 pt-8 md:space-x-5 space-y-4 md:space-y-0 items-center flex md:flex-row flex-col justify-center">
+        <a href="">
+        <button class="text-white hover:bg-[#3F6893] hover:border-[#3F6893] xl:text-lg text-base py-3 px-10 border-2 border-white rounded-full">Meet our experts</button>
+      </a>
+      <a href="">
+        <button class="text-white hover:bg-[#3F6893] hover:border-[#3F6893] xl:text-lg text-base py-3 px-10 border-2 border-white rounded-full">Get a Free Audit</button>
+      </a>
+      </div>
+    </div>
+  </nav>
+  
+<!-- about section  -->
+<section class="2xl:px-20 lg:px-10 px-5 2xl:pt-80 lg:pt-44 md:pt-32 pt-20">
+  <div class="flex md:flex-row flex-col">
+    <div class="md:w-2/5 w-full text-center md:text-start">
+      <h1 class="2xl:text-[90px] lg:text-7xl text-6xl text-white">About Us</h1>
+      <div class="2xl:pt-8 pt-4">
+      <button class="bg-[#3F6893] lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full">Our Story</button>
+    </div>
+    </div>
+
+    <div class="md:w-3/5 w-full text-center md:text-start">
+      <p class="2xl:text-[26px] xl:text-xl text-base text-[#D3D3D3] pt-2 2xl:leading-[44px] lg:leading-8 leading-7">TreeConnect is a next-generation service company offering  the level of structure, tools, and methodology typically reserved for large corporations. We operate across 8 key business areas to help companies launch, organize, and scale with clarity and efficiency.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- services section   -->
+<section class="2xl:pt-56 lg:pt-28 pt-20">
+  <div class="text-center px-5 ">
+    <h1 class="2xl:text-[90px] lg:text-7xl text-6xl text-white">
+      Our Services
+    </h1>
+    <p class="2xl:text-[26px] xl:text-xl text-base text-[#D3D3D3] pt-5 2xl:leading-[44px] lg:leading-8 leading-7 ">At TreeConnect, we offer a comprehensive range of services designed <br class="hidden md:block"> to support your business at every stage of growth.</p>
+  </div>
+
+   <!-- TESTIMONIALS -->
+   <div class="testimonials lg:pt-20 pt-10">
+    <div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="customers-testimonials" class="owl-carousel">
+  
+              <!--TESTIMONIAL 1 -->
+              <div class="item w-full">
+                <div class="shadow-effect">
+                  <div class="w-12">
+                  <img src="../build/assets/img/humanresource.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">Human Resources</h1>
+                  <div class=" text-white pt-40 ">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We manage your HR, from hiring to payroll, time tracking, terminations, and accident follow-up.</p>
+
+                    <div>
+                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <button>Learn more</button>
+                    </div>
+                   
+                  </div>
+              
+                </div>
+                
+              </div>
+              <!--END OF TESTIMONIAL 1 -->
+
+              <!--TESTIMONIAL 2 -->
+              <div class="item w-full">
+                <div class="shadow-effect">
+                  <div class="w-12">
+                  <img src="../build/assets/img/admin.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">Admin BackOffice</h1>
+                  <div class=" text-white pt-40 ">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We take care of your admin so you can focus on your real work.</p>
+
+                    <div>
+                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <button>Learn more</button>
+                    </div>
+                   
+                  </div>
+              
+                </div>
+                
+              </div>
+              <!--END OF TESTIMONIAL 2 -->
+
+              <!--TESTIMONIAL 3 -->
+              <div class="item w-full">
+                <div class="shadow-effect">
+                  <div class="w-12">
+                  <img src="../build/assets/img/plan.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">Business Planning  Launch</h1>
+                  <div class=" text-white pt-40 ">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We help you create your company, with the right structure and a solid business plan.</p>
+
+                    <div>
+                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <button>Learn more</button>
+                    </div>
+                   
+                  </div>
+              
+                </div>
+                
+              </div>
+              <!--END OF TESTIMONIAL 3 -->
+
+              <!--TESTIMONIAL 4 -->
+              <div class="item w-full">
+                <div class="shadow-effect">
+                  <div class="w-12">
+                  <img src="../build/assets/img/humanresource.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">Human Resources</h1>
+                  <div class=" text-white pt-40 ">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We manage your HR, from hiring to payroll, time tracking, terminations, and accident follow-up.</p>
+
+                    <div>
+                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <button>Learn more</button>
+                    </div>
+                   
+                  </div>
+              
+                </div>
+                
+              </div>
+              <!--END OF TESTIMONIAL 4 -->
+
+              <!--TESTIMONIAL 5 -->
+              <div class="item w-full">
+                <div class="shadow-effect">
+                  <div class="w-12">
+                  <img src="../build/assets/img/humanresource.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">Human Resources</h1>
+                  <div class=" text-white pt-40 ">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We manage your HR, from hiring to payroll, time tracking, terminations, and accident follow-up.</p>
+
+                    <div>
+                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <button>Learn more</button>
+                    </div>
+                   
+                  </div>
+              
+                </div>
+                
+              </div>
+              <!--END OF TESTIMONIAL 5 -->
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <!-- END OF TESTIMONIALS -->
+
+</section>
+
+
+<!-- smater section   -->
+<section class="2xl:pt-52 lg:pt-20 pt-10 2xl:px-20 lg:px-10 px-5">
+  <div>
+    <h1 class="2xl:text-[90px] xl:text-6xl md:text-5xl text-4xl text-white 2xl:leading-[100px] xl:leading-[80px] md:leading-[60px] text-center">Ready to Grow Smarter?</h1>
+  </div>
+  <div class="flex lg:flex-row flex-col justify-center items-center gap-5 2xl:pt-16 lg:pt-12 pt-6">
+    <div class="lg:w-1/3 w-full h-full flex justify-center">
+      <img src="../build/assets/img/growimg.png" alt="">
+    </div>
+    <div class="lg:w-2/3 w-full bg-[#3F6893] rounded-xl  2xl:p-12 xl:p-8 lg:p-4 p-6"style="background-image: url('../build/assets/img/sprinkle.png');">
+      <div class="" >
+        <h1 class="2xl:text-5xl lg:text-3xl text-2xl text-white">Turning ideas into impact</h1>
+      </div>
+      <div class="flex md:flex-row flex-col md:justify-between justify-center items-center 2xl:pt-14 pt-10 gap-4">
+        <a href="">   
+          <button class="text-white rounded-[20px] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/ino.png" alt="">Innovative solutions</button>
+        </a>
+        <a href="">   
+          <button class="text-white rounded-[20px] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/expert.png" alt="">Expert guidance</button>
+        </a>
+        <a href="">   
+          <button class="text-white rounded-[20px] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/services.png" alt="">Full-service support</button>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="flex lg:flex-row flex-col justify-center items-center gap-5 pt-10">
+    <div class="lg:w-2/3 w-full bg-[#3F6893] rounded-xl 2xl:px-12 2xl:py-10 xl:p-8 lg:p-4 p-6"style="background-image: url('../build/assets/img/sprinkle.png');">
+      <div class="" >
+        <p class="2xl:text-[22px] lg:text-lg text-base text-[#D3D3D3] 2xl:leading-[40px] lg:leading-7 leading-6 ">Building a successful business isn’t just about working harder , it’s about working smarter. At TreeConnect, we bring you the same strategies, systems, and expert support that big companies use , simplified and customized for growing businesses like yours.</p>
+      </div>
+      <div class="2xl:pt-14 pt-10 gap-4">
+        <a href="">   
+          <button class="text-white rounded-full border border-white xl:px-7 xl:py-2 px-4 py-2 2xl:text-lg text-base gap-2">Get Started</button>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="lg:w-1/3 w-full h-full flex justify-center">
+      <img src="../build/assets/img/clock.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- testimonial section  -->
+
+
+
+<section class="w-full 2xl:pt-52 lg:pt-24 pt-10 2xl:px-20 lg:px-10 px-5">
+  <div class="flex flex-col md:flex-row">
+    <!-- Top Section -->
+    <div class="mb-6 md:w-1/2 w-full flex flex-col md:justify-between md:h-[400px]">
+      <h1 class="2xl:text-[90px] lg:text-5xl text-4xl text-white uppercase" data-aos="fade-right">testimonials</h1>
+      <div class="flex gap-10 pt-10 lg:pt-20">
+        <button id="prevSlide" class="">
+          <img src="../build/assets/img/lefterrow.png" class="2xl:w-[160px] w-[100px]" alt="">
+        </button>
+        <button id="nextSlide" class="">
+      <img src="../build/assets/img/righterrow.png" class="2xl:w-[160px] w-[100px]" alt="">
+        </button>
+      </div>
+    </div>
+
+    <!-- Slider Container -->
+    <div class="w-full md:w-1/2 overflow-hidden">
+      <div id="slider" class="flex transition-transform duration-500 ease-out">
+        <!-- Slide 1 -->
+        <div class="min-w-full">
+          <div class="flex flex-col justify-between h-[400px]">
+              <div>
+              <h1 class="text-white font-medium xl:text-2xl text-lg">Connecting Ideas to Impact</h1>
+              <p class="text-[#D3D3D3] pt-4">Tree Connect has completely transformed the way I launched and managed my business. Their strategic guidance, expert services, and hands, on support have gone far beyond my expectations. It's not just about professionalism , it's about partnership. They treat my business like their own, handling every detail with care and precision. Thanks to TreeConnect, I was able to focus on growth while they handled the heavy lifting. Truly a game, changer for any entrepreneur.</p>
+          </div>
+              <div class="flex gap-4 items-center">
+            <img src="./assets/img/testimonialpic.png" alt="Slide 1" class="w-20">
+          <div>
+            <h3 class="text-white font-medium xl:text-xl text-lg">Sophia Rodriguez</h3>
+            <p class="xl:text-base text-sm text-[#D3D3D3]">San Francisco, California</p>
+          </div>
+          </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="min-w-full">
+          <div class="flex flex-col justify-between h-[400px]">
+              <div>
+              <h1 class="text-white font-medium xl:text-2xl text-lg">Connecting Ideas to Impact</h1>
+              <p class="text-[#D3D3D3] pt-4">Tree Connect has completely transformed the way I launched and managed my business. Their strategic guidance, expert services, and hands, on support have gone far beyond my expectations. It's not just about professionalism , it's about partnership. They treat my business like their own, handling every detail with care and precision. Thanks to TreeConnect, I was able to focus on growth while they handled the heavy lifting. Truly a game, changer for any entrepreneur.</p>
+          </div>
+              <div class="flex gap-4 items-center">
+            <img src="./assets/img/testimonialpic.png" alt="Slide 1" class="w-20">
+          <div>
+            <h3 class="text-white font-medium xl:text-xl text-lg">Sophia Rodriguez</h3>
+            <p class="xl:text-base text-sm text-[#D3D3D3]">San Francisco, California</p>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for Slider Functionality     -->
+<script>
+  const slider = document.getElementById('slider');
+  const prev = document.getElementById('prevSlide');
+  const next = document.getElementById('nextSlide');
+
+  let currentIndex = 0;
+  const totalSlides = slider.children.length;
+
+  function updateSliderPosition() {
+    const offset = -currentIndex * 100;
+    slider.style.transform = `translateX(${offset}%)`;
+
+    // Button states
+    prev.disabled = currentIndex <= 0;
+    next.disabled = currentIndex >= totalSlides - 1;
+
+    prev.classList.toggle('opacity-50', prev.disabled);
+    next.classList.toggle('opacity-50', next.disabled);
+  }
+
+  next.addEventListener('click', () => {
+    if (currentIndex < totalSlides - 1) {
+      currentIndex++;
+      updateSliderPosition();
+    }
+  });
+
+  prev.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
+    }
+  });
+
+  updateSliderPosition(); // Initial call
+</script>
+
+
+<footer class="2xl:pt-52 lg:pt-24 pt-10">
+  <div class="bg-[#3F6893] grid md:grid-cols-3 grid-cols-1 xl:gap-64 md:gap-28 2xl:py-20 2xl:px-48 lg:py-10 lg:px-24 py-6 px-10 ">
+    <div class="text-center md:text-start">
+      <div class="flex md:justify-start justify-center">
+      <img src="../build/assets/img/footerlogo.png" alt="">
+    </div>
+      <p class="text-[#D3D3D3] xl:text-sm text-xs font-light pt-3">All-in-one service platform supporting entrepreneurs and SMEs with smart, scalable solutions from HR to IT and everything in between.</p>
+      <i class="fa-brands fa-linkedin text-white pt-2"></i>
+    </div>
+
+    <div class="text-center md:text-start pt-5 md:pt-0">
+      <h1 class="xl:text-sm text-xs font-medium text-white">QUICK LINKS</h1>
+      <div class="flex flex-col pt-4 space-y-3">
+      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light">About Us
+      </a>
+      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light">Contact Us
+      </a>
+      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light">Our story
+      </a>
+      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light">Our services
+      </a>
+    </div>
+    </div>
+
+    <div class="text-center md:text-start pt-5 md:pt-0"> 
+      <h1 class="xl:text-sm text-xs font-medium  text-white">CONTACT US</h1>
+      <div class="pt-4 space-y-3">
+      <p class="text-[#D3D3D3] xl:text-sm text-xs font-light"><i class="fa-solid fa-envelope"></i> &nbsp;Contact@treeconnect.ch</p>
+      <p class="text-[#D3D3D3] xl:text-sm text-xs font-light"><i class="fa-regular fa-clock"></i> &nbsp;Mon - Fri / 8:00AM - 18:00PM</p>
+      <p class="text-[#D3D3D3] xl:text-sm text-xs font-light"> <i class="fa-solid fa-location-dot"></i> &nbsp;Boulevard Georges-Favon 14, 1204 Genève</p>
+    </div>
+    </div>
+  </div>
+</footer>
+
+   <!-- slider testimonial js -->
+
+   <script>
+    jQuery(document).ready(function($) {
+          "use strict";
+          //  TESTIMONIALS CAROUSEL HOOK
+          $('#customers-testimonials').owlCarousel({
+              loop: true,
+              center: true,
+              items: 3,
+              margin: 0,
+              autoplay: true,
+              dots:true,
+              autoplayTimeout: 8500,
+              smartSpeed: 450,
+              responsive: {
+                0: {
+                  items: 1
+                },
+                1024: {
+                  items: 2
+                },
+               
+                1770: {
+                  items: 3
+                }
+              }
+          });
+        });
+  </script>
+
+
+
+  <!-- navbar js  -->
+  <!-- JavaScript -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/a2ada4947c.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../build/assets/css/style.css">
+</head>
+<body>
+    <section class="w-full py-16 bg-[#F4F4F4]">
+        <div class="flex flex-col lg:flex-row">
+          <!-- Top Section -->
+          <div class="mb-6 md:w-1/2 w-full flex flex-col justify-between">
+            <h1 class="text-xl md:text-4xl text-[#3B3B3B]" data-aos="fade-right">testimonial</h1>
+            <div class="flex justify-between pt-10 lg:pt-20">
+              <button id="prevSlide" class="">
+                <img src="../build/assets/img/lefterrow.png" alt="">
+              </button>
+              <button id="nextSlide" class="">
+            <img src="../build/assets/img/righterrow.png" alt="">
+              </button>
+            </div>
+          </div>
+      
+          <!-- Slider Container -->
+          <div class="w-full md:w-1/2 overflow-hidden">
+            <div id="slider" class="flex transition-transform duration-500 ease-out">
+              <!-- Slide 1 -->
+              <div class="min-w-full">
+                <div class="flex flex-col justify-between h-[484px]">
+                    <div>
+                    <h1>Connecting Ideas to Impact</h1>
+                    <p>Tree Connect has completely transformed the way I launched and managed my business. Their strategic guidance, expert services, and hands, on support have gone far beyond my expectations. It's not just about professionalism , it's about partnership. They treat my business like their own, handling every detail with care and precision. Thanks to TreeConnect, I was able to focus on growth while they handled the heavy lifting. Truly a game, changer for any entrepreneur.</p>
+                </div>
+                    <div>
+                  <img src="./assets/img/testimonialpic.png" alt="Slide 1" class="w-20">
+                <div>
+                  <h3 class="text-lg font-semibold text-[#3B3B3B] mt-4">Sophia Rodriguez</h3>
+                  <p>San Francisco, California</p>
+                </div>
+                </div>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="min-w-full">
+                <div class="bg-[#EEEEEE] rounded-[40px] p-4 text-center flex flex-col justify-between h-[500px]">
+                  <img src="./assets/img/u1.png" alt="Slide 2" class="w-full h-[80%] object-cover rounded-[40px] mb-4">
+                  <h3 class="text-lg font-semibold text-[#3B3B3B] mt-4">Intelligent Buying Guide</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+     <!-- JavaScript for Slider Functionality     -->
+     <script>
+        const slider = document.getElementById('slider');
+        const prev = document.getElementById('prevSlide');
+        const next = document.getElementById('nextSlide');
+      
+        let currentIndex = 0;
+        const totalSlides = slider.children.length;
+      
+        function updateSliderPosition() {
+          const offset = -currentIndex * 100;
+          slider.style.transform = `translateX(${offset}%)`;
+      
+          // Button states
+          prev.disabled = currentIndex <= 0;
+          next.disabled = currentIndex >= totalSlides - 1;
+      
+          prev.classList.toggle('opacity-50', prev.disabled);
+          next.classList.toggle('opacity-50', next.disabled);
+        }
+      
+        next.addEventListener('click', () => {
+          if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+            updateSliderPosition();
+          }
+        });
+      
+        prev.addEventListener('click', () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateSliderPosition();
+          }
+        });
+      
+        updateSliderPosition(); // Initial call
+      </script>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
