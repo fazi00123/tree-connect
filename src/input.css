@@ -6,7 +6,10 @@
 @tailwind utilities;
 
 
-
+body p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
 .active{
     color: white;
 }
