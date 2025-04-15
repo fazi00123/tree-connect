@@ -5,63 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="../build/assets/css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-[#304B68] overflow-x-hidden">
-    <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5">
-        <!-- Main Navbar Container -->
-        <div class="flex justify-between items-center bg-[#3F6893] px-8 py-5 rounded-[40px]">
-          <!-- Logo -->
-          <div>
-            <a href="index.html">
-            <img src="../build/assets/img/logo1.png" alt="Logo">
-          </a>
-          </div>
-      
-          <!-- Desktop Navigation -->
-          <div class="hidden lg:block">
-            <ul class="flex xl:space-x-14 space-x-10">
-              <li><a href="index.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Home</a></li>
-              <li><a href="services.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Our services</a></li>
-              <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Our story</a></li>
-              <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white active">Contact us</a></li>
-            </ul>
-          </div>
-      
-          <!-- Login Button (Hidden on Mobile) -->
-          <div class="hidden lg:block">
-            <button class="text-[#FFFFFF] xl:text-lg text-base xl:py-3 xl:px-16 lg:px-10 lg:py-2 py-3 px-16 border border-white rounded-full">Login</button>
-          </div>
-      
-          <!-- Mobile Hamburger Icon -->
-          <div class="lg:hidden">
-            <button id="menu-toggle" class="text-white focus:outline-none">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden mt-5 transition-all duration-300 ease-in-out bg-[#3F6893] rounded-3xl px-6 py-5">
-          <ul class="flex flex-col space-y-4 text-center">
-            <li><a href="index.html" class="text-[#D3D3D3] text-base hover:text-white ">Home</a></li>
-            <li><a href="services.html" class="text-[#D3D3D3] text-base hover:text-white ">Our services</a></li>
-            <li><a href="story.html" class="text-[#D3D3D3] text-base hover:text-white">Our story</a></li>
-            <li><a href="contact.html" class="text-[#D3D3D3] text-base hover:text-white active">Contact us</a></li>
-            <li><button class="mt-3 text-white py-2 px-16 border border-white rounded-full">Login</button></li>
-          </ul>
-        </div>
-      </nav>
+  <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 relative z-50">
+    <!-- Main Navbar Container -->
+    <div class="flex justify-between items-center bg-[#3F6893] px-8 py-5 rounded-[40px] relative z-50">
+      <!-- Logo -->
+      <div>
+        <a href="index.html">
+          <img src="../build/assets/img/logo1.png" alt="Logo">
+        </a>
+      </div>
+  
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:block">
+        <ul class="flex xl:space-x-14 space-x-10">
+          <li><a href="index.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Home</a></li>
+          <li><a href="services.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Our services</a></li>
+          <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Our story</a></li>
+          <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white active">Contact us</a></li>
+        </ul>
+      </div>
+  
+      <!-- Login Button (Hidden on Mobile) -->
+      <div class="hidden lg:block">
+        <button class="text-[#FFFFFF] xl:text-lg text-base xl:py-3 xl:px-16 lg:px-10 lg:py-2 py-3 px-16 border border-white rounded-full">Login</button>
+      </div>
+  
+      <!-- Mobile Toggle Buttons -->
+      <div class="lg:hidden z-50">
+        <!-- Hamburger -->
+        <button id="menu-open" class="text-white focus:outline-none block">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+          </svg>
+        </button>
+  
+        <!-- X / Close -->
+        <button id="menu-close" class="text-white focus:outline-none hidden">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="absolute left-0 right-0 hidden mt-5 bg-[#3F6893] rounded-3xl px-6 py-5 z-40 transition-all duration-300 ease-in-out">
+      <ul class="flex flex-col space-y-4 text-center">
+        <li><a href="index.html" class="text-[#D3D3D3] text-base hover:text-white">Home</a></li>
+        <li><a href="services.html" class="text-[#D3D3D3] text-base hover:text-white">Our services</a></li>
+        <li><a href="story.html" class="text-[#D3D3D3] text-base hover:text-white">Our story</a></li>
+        <li><a href="contact.html" class="text-[#D3D3D3] text-base hover:text-white active">Contact us</a></li>
+        <li><button class="mt-3 text-white py-2 px-16 border border-white rounded-full">Login</button></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- JavaScript -->
+  <script>
+    const openBtn = document.getElementById('menu-open');
+    const closeBtn = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+  
+    openBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      openBtn.classList.add('hidden');
+      closeBtn.classList.remove('hidden');
+    });
+  
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      closeBtn.classList.add('hidden');
+      openBtn.classList.remove('hidden');
+    });
+  </script>
+  
+  
 
       <section class="2xl:px-28 lg:px-10 px-5 2xl:pt-36 lg:pt-24 pt-10">
         <div class="flex md:flex-row flex-col xl:gap-28 md:gap-12">
             <div class="md:w-1/2 w-full">
-                <img src="../build/assets/img/redar.png" alt="">
+              <div class="radar xl:w-[550px] xl:h-[550px] lg:w-[400px] lg:h-[400px] w-[370px] h-[370px] bg-black">
+
+                <!-- Sweep Animation -->
+                <div class="sweep"></div>
+            
+                <!-- Concentric Circles -->
+                <div class="radar-circle" style="top: 0; left: 0; width: 100%; height: 100%;"></div>
+                <div class="radar-circle" style="top: 12.5%; left: 12.5%; width: 75%; height: 75%;"></div>
+                <div class="radar-circle" style="top: 25%; left: 25%; width: 50%; height: 50%;"></div>
+                <div class="radar-circle" style="top: 37.5%; left: 37.5%; width: 25%; height: 25%;"></div>
+            
+                <!-- Cross Lines -->
+                <div class="radar-line" style="top: 50%; left: 0; width: 100%; height: 1px;"></div> <!-- Horizontal -->
+                <div class="radar-line" style="left: 50%; top: 0; width: 1px; height: 100%;"></div> <!-- Vertical -->
+            
+                <!-- Direction Labels -->
+                <div class="absolute top-4 left-1/2 text-cyan-400 text-lg font-bold" style="transform: translate(-50%, -50%); z-index: 3;">N</div>
+                <div class="absolute bottom-4 left-1/2 text-cyan-400 text-lg font-bold" style="transform: translate(-50%, 50%); z-index: 3;">S</div>
+                <div class="absolute top-1/2 left-4 text-cyan-400 text-lg font-bold" style="transform: translate(-50%, -50%); z-index: 3;">W</div>
+                <div class="absolute top-1/2 right-4 text-cyan-400 text-lg font-bold" style="transform: translate(50%, -50%); z-index: 3;">E</div>
+            
+                <!-- Center Dot -->
+                <div class="absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full z-10" style="transform: translate(-50%, -50%);"></div>
+              </div>
             </div>
             <div class="md:w-1/2 w-full pt-10 md:pt-0">
-                <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Get in Touch</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 ">We're here to help you connect the dots and grow your business smarter.</p>
+                <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" data-aos="fade-up"
+                data-aos-duration="1500">Get in Touch</h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " data-aos="fade-down"
+                data-aos-duration="1500">We're here to help you connect the dots and grow your business smarter.</p>
 
                 <form action="" class="xl:pt-20 pt-10 space-y-10">
                     <input type="text" id="" name="" class=" w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg" placeholder="Your Name">
@@ -74,38 +129,51 @@
                       </label>
                   
                 </form>
-                <a href="#popup1">
+                <a href="#popup1" data-aos="fade-up"
+                data-aos-duration="1500">
                 <button class="mt-10 text-white py-3 px-10 border border-white rounded-full xl:text-lg text-base font-medium">Send Message</button>
               </a>
 
                 <div class="xl:pt-24 pt-12">
-                <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Book a Call</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 ">Let’s talk about your business goals — and how TreeConnect can help you achieve them</p>
+                <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" data-aos="fade-up"
+                data-aos-duration="1500">Book a Call</h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " data-aos="fade-down"
+                data-aos-duration="1500">Let’s talk about your business goals — and how TreeConnect can help you achieve them</p>
             </div>
             <div class="flex justify-between items-center xl:pt-12 pt-8">
                 <div class="flex items-center gap-4">
-                    <img src="../build/assets/img/watsapp.png" alt="">
-                    <p class="2xl:text-[22px] lg:text-lg text-base font-light text-white">Chat with us on WhatsApp</p>
+                    <img src="../build/assets/img/watsapp.png" data-aos="fade-down"
+                    data-aos-duration="1500"  alt="">
+                    <p class="2xl:text-[22px] lg:text-lg text-base font-light text-white" data-aos="zoom-in"
+                    data-aos-duration="1500">Chat with us on WhatsApp</p>
                 </div>
-                <img src="../build/assets/img/nexterrow.png" alt="">
+                <img src="../build/assets/img/nexterrow.png" data-aos="fade-up"
+                data-aos-duration="1500" alt="">
             </div>
 
             <div class="flex justify-between items-center pt-8">
                 <div class="flex items-center gap-4">
-                    <img src="../build/assets/img/aichat.png" alt="">
-                    <p class="2xl:text-[22px] lg:text-lg text-base font-light text-white">AI Chat Support</p>
+                    <img src="../build/assets/img/aichat.png" data-aos="fade-up"
+                    data-aos-duration="1500" alt="">
+                    <p class="2xl:text-[22px] lg:text-lg text-base font-light text-white" data-aos="zoom-out"
+                    data-aos-duration="1500">AI Chat Support</p>
                 </div>
-                <img src="../build/assets/img/nexterrow.png" alt="">
+                <img src="../build/assets/img/nexterrow.png" data-aos="fade-down"
+                data-aos-duration="1500" alt="">
             </div>
 
             <div class="flex justify-between items-center pt-8">
                 <div class="flex items-center gap-4">
-                    <img src="../build/assets/img/meeting.png" alt="">
-                    <p class="2xl:text-[22px] lg:text-lg text-base font-light text-white">Schedule a Meeting</p>
+                    <img src="../build/assets/img/meeting.png" data-aos="zoom-in"
+                    data-aos-duration="1500" alt="">
+                    <p class="2xl:text-[22px] lg:text-lg text-base font-light text-white" data-aos="fade-up"
+                    data-aos-duration="1500">Schedule a Meeting</p>
                 </div>
-                <img src="../build/assets/img/nexterrow.png" alt="">
+                <img src="../build/assets/img/nexterrow.png" data-aos="fade-down"
+                data-aos-duration="1500" alt="">
             </div>
-            <p class="2xl:text-[22px] lg:text-lg text-base font-light text-[#D3D3D3] xl:pt-14 pt-8">Ready to scale smarter? Book your strategy call now.</p>
+            <p class="2xl:text-[22px] lg:text-lg text-base font-light text-[#D3D3D3] xl:pt-14 pt-8" data-aos="zoom-in"
+            data-aos-duration="1500">Ready to scale smarter? Book your strategy call now.</p>
             </div>
         </div>
       </section>
@@ -177,14 +245,18 @@
 
 
       <!--navbar JavaScript -->
-  <script>
+  <!-- <script>
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
   
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-  </script>
+  </script> -->
     <script src="https://kit.fontawesome.com/a2ada4947c.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>
