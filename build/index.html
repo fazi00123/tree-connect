@@ -27,7 +27,7 @@
 <body class="bg-[#304B68] overflow-x-hidden">
   <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 bg-center bg-no-repeat 2xl:h-[1080px] lg:h-[780px] h-[580px] relative z-50" style="background-image: url('../build/assets/img/navbg.png');">
     <!-- Main Navbar Container -->
-     
+
     <!-- Animated Dots Layer -->
 <canvas id="dotsCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
 
@@ -176,6 +176,11 @@
 
    <!-- TESTIMONIALS -->
    <div class="testimonials lg:pt-20 pt-10">
+    <div class="flex gap-4 my-6 2xl:px-20 lg:px-10 px-5">
+      <button class="prev-btn bg-transparent border border-white text-white px-4 py-2 rounded-lg transition">← Prev</button>
+      <button class="next-btn bg-transparent border border-white text-white px-4 py-2 rounded-lg transition">Next →</button>
+    </div>
+    
     <div>
         <div class="row">
           <div class="col-sm-12">
@@ -542,36 +547,47 @@
   </script>
   
 
-   <!-- slider testimonial js -->
+   <!-- slider js -->
 
    <script>
     jQuery(document).ready(function($) {
-          "use strict";
-          //  TESTIMONIALS CAROUSEL HOOK
-          $('#customers-testimonials').owlCarousel({
-              loop: true,
-              center: true,
-              items: 3,
-              margin: 0,
-              autoplay: true,
-              dots:true,
-              autoplayTimeout: 8500,
-              smartSpeed: 450,
-              responsive: {
-                0: {
-                  items: 1
-                },
-                1024: {
-                  items: 2
-                },
-               
-                1770: {
-                  items: 3
-                }
-              }
-          });
-        });
+      "use strict";
+  
+      var owl = $('#customers-testimonials');
+  
+      owl.owlCarousel({
+        loop: true,
+        center: true,
+        items: 3,
+        margin: 0,
+        autoplay: true,
+        dots: true,
+        autoplayTimeout: 8500,
+        smartSpeed: 450,
+        responsive: {
+          0: {
+            items: 1
+          },
+          1024: {
+            items: 2
+          },
+          1770: {
+            items: 3
+          }
+        }
+      });
+  
+      // 👇 Custom Next and Prev Button Actions
+      $('.next-btn').click(function() {
+        owl.trigger('next.owl.carousel');
+      });
+  
+      $('.prev-btn').click(function() {
+        owl.trigger('prev.owl.carousel');
+      });
+    });
   </script>
+  
 
   <script src="https://kit.fontawesome.com/a2ada4947c.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
