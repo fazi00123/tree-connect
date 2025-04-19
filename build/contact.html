@@ -14,7 +14,7 @@
       <!-- Logo -->
       <div>
         <a href="index.html">
-          <img src="../build/assets/img/logo1.png" alt="Logo">
+          <img src="../build/assets/img/logo2.png" class="w-52" alt="Logo">
         </a>
       </div>
   
@@ -29,7 +29,16 @@
       </div>
   
       <!-- Login Button (Hidden on Mobile) -->
-      <div class="hidden lg:block">
+      <div class="items-center hidden lg:block lg:items-center space-x-5">
+        <div class="relative inline-block text-left items-center top-1">
+          <!-- Icon Button -->
+          <button onclick="toggleTranslate()" class="flex items-center gap-2 text-white text-base">
+            <i class="fas fa-language text-2xl"></i>
+          </button>
+        
+          <!-- Dropdown -->
+          <div id="google_translate_element" class="absolute -left-10 z-50 mt-2 rounded shadow-lg bg-[#3F6893] text-white text-sm p-2" style="display: none;"></div>
+        </div>
         <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full">Login</button>
       </div>
   
@@ -240,6 +249,23 @@
     </div>
   </div>
   
+
+  <!-- Google Translate Script -->
+<script type="text/javascript">
+  function toggleTranslate() {
+    const el = document.getElementById("google_translate_element");
+    el.style.display = el.style.display === "none" ? "block" : "none";
+  }
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
     function closePopup() {

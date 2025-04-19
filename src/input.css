@@ -159,7 +159,7 @@ body p{
     height: 100%;
     background: conic-gradient(rgba(0, 255, 255, 0.3) 0deg, transparent 60deg);
     border-radius: 50%;
-    animation: rotate 2s linear infinite;
+    animation: rotate 3s linear infinite;
     z-index: 1;
   }
 
