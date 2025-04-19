@@ -12,12 +12,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/owl.carousel.min.js"></script>
+
+  <style>
+    #dotsCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+    </style>
+    
 </head>
 <body class="bg-[#304B68] overflow-x-hidden">
-  <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 bg-center bg-no-repeat 2xl:h-[1080px] lg:h-[780px] h-[580px] relative z-50" style="background-image: url('./assets/img/navbg.png');">
+  <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 bg-center bg-no-repeat 2xl:h-[1080px] lg:h-[780px] h-[580px] relative z-50" style="background-image: url('../build/assets/img/navbg.png');">
     <!-- Main Navbar Container -->
-    <!-- Main Navbar Container -->
+    <!-- Animated Dots Layer -->
+<canvas id="dotsCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
+
     <div class="flex justify-between items-center bg-[#3F6893] px-8 py-5 rounded-[40px] relative z-50">
+      
       <!-- Logo -->
       <div>
         <a href="index.html">
@@ -477,7 +491,55 @@
   }
 </script>
 
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+<script>
+  const canvas = document.getElementById('dotsCanvas');
+  const ctx = canvas.getContext('2d');
+  
+  let dots = [];
+  const numDots = 450; // number of dots
+  const maxSpeed = 0.9;
+  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = document.querySelector('nav').offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  
+  for (let i = 0; i < numDots; i++) {
+    dots.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * maxSpeed,
+      dy: (Math.random() - 0.5) * maxSpeed
+    });
+  }
+  
+  function drawDots() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+    dots.forEach(dot => {
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+      ctx.fill();
+  
+      dot.x += dot.dx;
+      dot.y += dot.dy;
+  
+      // bounce back
+      if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+      if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+    });
+    requestAnimationFrame(drawDots);
+  }
+  
+  drawDots();
+  </script>
+  
 
    <!-- slider testimonial js -->
 
