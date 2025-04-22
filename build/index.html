@@ -6,7 +6,7 @@
   <title>Home</title>
   <link rel="stylesheet" href="../build/assets/css/style.css">
 
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css">
@@ -27,9 +27,12 @@
 <body class="bg-[#304B68] overflow-x-hidden">
   <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 bg-center bg-no-repeat 2xl:h-[1080px] lg:h-[780px] h-[580px] relative z-50" style="background-image: url('../build/assets/img/navbg.png');">
     <!-- Main Navbar Container -->
-
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover -z-50">
+      <source src="../build/assets/img/WhatsApp Video 2025-04-21 at 16.06.44_7099ad84.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
     <!-- Animated Dots Layer -->
-<canvas id="dotsCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas>
+<!-- <canvas id="dotsCanvas" class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none"></canvas> -->
 
     <div class="flex justify-between items-center bg-[#3F6893] px-8 py-5 rounded-[40px] relative z-50">
       
@@ -70,7 +73,7 @@
         <!-- Hamburger -->
         <button id="menu-open" class="text-white focus:outline-none block">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
   
@@ -105,8 +108,7 @@
   
     <!-- Hero Content -->
     <div class="text-center 2xl:pt-16 pt-10">
-      <div data-aos="zoom-in"
-      data-aos-duration="1500">
+      <div >
         <h1 class="2xl:text-[90px] xl:text-6xl md:text-5xl text-4xl text-white 2xl:leading-[100px] xl:leading-[80px] md:leading-[60px]">
           From idea to impact. <br> We grow what you build.
         </h1>
@@ -115,12 +117,10 @@
         </p>
       </div>
       <div class="xl:pt-16 pt-8 md:space-x-5 space-y-4 md:space-y-0 items-center flex md:flex-row flex-col justify-center">
-        <a href="contact.html" data-aos="fade-up"
-        data-aos-duration="1500">
+        <a href="contact.html" >
         <button class="text-white hover:bg-[#3F6893] hover:border-[#3F6893] xl:text-lg text-base py-3 px-10 border border-white rounded-full">Meet our experts</button>
       </a>
-      <a href="" data-aos="fade-down"
-      data-aos-duration="1500">
+      <a href="">
         <button class="text-white hover:bg-[#3F6893] hover:border-[#3F6893] xl:text-lg text-base py-3 px-10 border border-white rounded-full">Get a Free Audit</button>
       </a>
       </div>
@@ -176,7 +176,7 @@
 
    <!-- TESTIMONIALS -->
    <div class="testimonials lg:pt-20 pt-10">
-    <div class="flex justify-center md:justify-start gap-4 my-6 2xl:px-20 lg:px-10 px-5">
+    <div class="flex justify-center md:justify-between gap-4 my-6 2xl:px-20 lg:px-10 px-5">
       <button class="prev-btn bg-transparent border border-white text-white px-4 py-2 rounded-lg transition">← Prev</button>
       <button class="next-btn bg-transparent border border-white text-white px-4 py-2 rounded-lg transition">Next →</button>
     </div>
@@ -190,54 +190,6 @@
               <div class="item w-full">
                 <div class="shadow-effect p-8">
                   <div class="w-12">
-                  <img src="../build/assets/img/resours.png" alt=""> 
-                  </div>
-                  <h1 class="text-white text-3xl pt-4">Human Resources</h1>
-                  <div class=" text-white pt-20">
-                   
-                    <p class="xl:text-lg text-sm xl:mb-4">We manage your HR, from hiring to payroll, time tracking, terminations, and accident follow-up.</p>
-
-                    <div>
-                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
-                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
-                      <button>Learn more</button>
-                    </div>
-                   
-                  </div>
-              
-                </div>
-                
-              </div>
-              <!--END OF TESTIMONIAL 1 -->
-
-              <!--TESTIMONIAL 2 -->
-              <div class="item w-full">
-                <div class="shadow-effect p-8">
-                  <div class="w-12">
-                  <img src="../build/assets/img/office.png" alt=""> 
-                  </div>
-                  <h1 class="text-white text-3xl pt-4">Admin BackOffice</h1>
-                  <div class=" text-white pt-20">
-                   
-                    <p class="xl:text-lg text-sm xl:mb-4">We take care of your admin so you can focus on your real work.</p>
-
-                    <div>
-                     
-                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
-                      <button>Learn more</button>
-                    </div>
-                   
-                  </div>
-              
-                </div>
-                
-              </div>
-              <!--END OF TESTIMONIAL 2 -->
-
-              <!--TESTIMONIAL 3 -->
-              <div class="item w-full">
-                <div class="shadow-effect p-8">
-                  <div class="w-12">
                   <img src="../build/assets/img/plann.png" alt=""> 
                   </div>
                   <h1 class="text-white text-3xl pt-4">Business Planning  Launch</h1>
@@ -248,7 +200,9 @@
                     <div>
                       <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
                       <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <a href="services.html">
                       <button>Learn more</button>
+                    </a>
                     </div>
                    
                   </div>
@@ -256,9 +210,122 @@
                 </div>
                 
               </div>
-              <!--END OF TESTIMONIAL 3 -->
 
+              <!--TESTIMONIAL 2 -->
+              <div class="item w-full">
+                <div class="shadow-effect p-8">
+                  <div class="w-12">
+                  <img src="../build/assets/img/resours.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">Human Resources</h1>
+                  <div class=" text-white pt-20">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We manage your HR, from hiring to payroll, time tracking, terminations, and accident follow-up.</p>
+
+                    <div>
+                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <a href="services2.html">
+                      <button>Learn more</button>
+                    </a>
+                    </div>
+                   
+                  </div>
+              
+                </div>
+                
+              </div>
+
+              <!--TESTIMONIAL 3 -->
+              <div class="item w-full">
+                <div class="shadow-effect p-8">
+                  <div class="w-12">
+                  <img src="../build/assets/img/office.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">Admin BackOffice</h1>
+                  <div class=" text-white pt-20">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We take care of your admin so you can focus on your real work.</p>
+                    <div>
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <a href="services3.html">
+                      <button>Learn more</button>
+                    </a>
+                    </div>  
+                  </div>
+                </div>   
+              </div>
            
+              <!-- TESTIMONIAL 4 -->
+              <div class="item w-full">
+                <div class="shadow-effect p-8">
+                  <div class="w-12">
+                  <img src="../build/assets/img/plann.png" alt=""> 
+                  </div>
+                  <h1 class="text-white text-3xl pt-4">IT & Infrastructure</h1>
+                  <div class=" text-white pt-20 ">
+                   
+                    <p class="xl:text-lg text-sm xl:mb-4">We set up your emails, website, shared folders, digital workspace, and tools.</p>
+                    <div>
+                      <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+                      <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+                      <a href="services4.html">
+                      <button>Learn more</button>
+                    </a>
+                    </div>                  
+                  </div>
+              
+                </div>               
+              </div>
+          
+              <!--TESTIMONIAL 5 -->
+             <div class="item w-full">
+            <div class="shadow-effect p-8">
+           <div class="w-12">
+             <img src="../build/assets/img/plann.png" alt=""> 
+           </div>
+             <h1 class="text-white text-3xl pt-4">Accounting & Finance</h1>
+               <div class=" text-white pt-20 ">
+       
+               <p class="xl:text-lg text-sm xl:mb-4">We take care of your accounting and give you clear visibility on your numbers and financial health.</p>
+
+               <div>
+          <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+          <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+          <a href="services5.html">
+          <button>Learn more</button>
+        </a>
+        </div>    
+      </div>
+    </div>
+    
+           </div>
+
+            <!--TESTIMONIAL 6 -->
+             <div class="item w-full">
+          <div class="shadow-effect p-8">
+        <div class="w-12">
+        <img src="../build/assets/img/plann.png" alt=""> 
+        </div>
+        <h1 class="text-white text-3xl pt-4">Marketing & Communication</h1>
+        <div class=" text-white pt-20 ">
+         
+          <p class="xl:text-lg text-sm xl:mb-4">We build your logo & brand identity, SEO, Google presence, social media marketing, video marketing.</p>
+
+          <div>
+            <!-- <img src="../build/assets/img/right-arrow.png" class="w-10" alt=""> -->
+            <i class="fa-solid fa-arrow-right text-white"></i> &nbsp; &nbsp;
+            <a href="services6.html">
+            <button>Learn more</button>
+          </a>
+          </div>
+         
+        </div>
+    
+      </div>
+      
+             </div>
+
             </div>
           </div>
         </div>
@@ -272,30 +339,25 @@
 <!-- smater section   -->
 <section class="2xl:pt-52 lg:pt-20 pt-10 2xl:px-20 lg:px-10 px-5">
   <div>
-    <h1 class="2xl:text-[90px] xl:text-6xl md:text-5xl text-4xl text-white 2xl:leading-[100px] xl:leading-[80px] md:leading-[60px] text-center" data-aos="fade-up"
-    data-aos-duration="1500">Ready to Grow Smarter?</h1>
+    <h1 class="2xl:text-[90px] xl:text-6xl md:text-5xl text-4xl text-white 2xl:leading-[100px] xl:leading-[80px] md:leading-[60px] text-center" >Ready to Grow Smarter?</h1>
   </div>
   <div class="flex lg:flex-row flex-col justify-center items-center gap-5 2xl:pt-16 lg:pt-12 pt-6">
     <div class="lg:w-1/3 w-full h-full flex justify-center">
-      <img src="../build/assets/img/grow.png" alt="">
+      <img src="../build/assets/img/grow1.png" alt="">
     </div>
     <div class="lg:w-2/3 w-full bg-[#3F6893] rounded-xl  2xl:p-8 xl:p-6 lg:p-4 p-6"style="background-image: url('../build/assets/img/sprinkle.png');">
       <div class="" >
-        <h1 class="2xl:text-5xl lg:text-3xl text-2xl text-white" data-aos="zoom-in"
-        data-aos-duration="1500">Turning ideas into impact</h1>
+        <h1 class="2xl:text-5xl lg:text-3xl text-2xl text-white">Turning ideas into impact</h1>
       </div>
       <div class="flex md:flex-row flex-col md:justify-between justify-center items-center 2xl:pt-14 pt-10 gap-4">
-        <a href="" data-aos="fade-down"
-        data-aos-duration="1500">   
-          <button class="text-white rounded-[20px] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/solution.png" class="w-12" alt="">Innovative solutions</button>
+        <a href="">   
+          <button class="text-white rounded-[20px] hover:bg-[#3F6893] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/solution.png" class="w-12" alt="">Innovative solutions</button>
         </a>
-        <a href="" data-aos="zoom-in"
-        data-aos-duration="1500">   
-          <button class="text-white rounded-[20px] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/guid.png" class="w-12" alt="">Expert guidance</button>
+        <a href="">   
+          <button class="text-white rounded-[20px] hover:bg-[#3F6893] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/guid.png" class="w-12" alt="">Expert guidance</button>
         </a>
-        <a href="" data-aos="fade-up"
-        data-aos-duration="1500">   
-          <button class="text-white rounded-[20px] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/service.png" class="w-12" alt="">Full-service support</button>
+        <a href="">   
+          <button class="text-white rounded-[20px] hover:bg-[#3F6893] border border-white xl:px-8 xl:py-5 px-5 py-3 flex items-center 2xl:text-lg text-base gap-2"><img src="../build/assets/img/service.png" class="w-12" alt="">Full-service support</button>
         </a>
 
       </div>
@@ -305,13 +367,11 @@
   <div class="flex lg:flex-row flex-col justify-center items-center gap-5 pt-10">
     <div class="lg:w-2/3 w-full bg-[#3F6893] rounded-xl 2xl:p-8 xl:p-6 lg:p-4 p-6"style="background-image: url('../build/assets/img/sprinkle.png');">
       <div class="" >
-        <p class="2xl:text-[22px] lg:text-lg text-base text-[#D3D3D3] 2xl:leading-[40px] lg:leading-7 leading-6 " data-aos="zoom-out"
-        data-aos-duration="1500">Building a successful business isn’t just about working harder , it’s about working smarter. At TreeConnect, we bring you the same strategies, systems, and expert support that big companies use , simplified and customized for growing businesses like yours.</p>
+        <p class="2xl:text-[22px] lg:text-lg text-base text-[#D3D3D3] 2xl:leading-[40px] lg:leading-7 leading-6 " >Building a successful business isn’t just about working harder , it’s about working smarter. At TreeConnect, we bring you the same strategies, systems, and expert support that big companies use , simplified and customized for growing businesses like yours.</p>
       </div>
-      <div class="2xl:pt-14 pt-10 gap-4" data-aos="zoom-in"
-      data-aos-duration="1500">
+      <div class="2xl:pt-14 pt-10 gap-4" >
         <a href="">   
-          <button class="text-white rounded-full border border-white xl:px-7 xl:py-2 px-4 py-2 2xl:text-lg text-base gap-2">Get Started</button>
+          <button class="text-white rounded-full border hover:bg-[#3F6893] border-white xl:px-7 xl:py-2 px-4 py-2 2xl:text-lg text-base gap-2">Get Started</button>
         </a>
 
       </div>
@@ -400,13 +460,13 @@
     <div class="text-center md:text-start pt-5 md:pt-0">
       <h1 class="xl:text-sm text-xs font-medium text-white">QUICK LINKS</h1>
       <div class="flex flex-col pt-4 space-y-3">
-      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light hover:underline">About Us
+      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light hover:underline">Home
       </a>
-      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light hover:underline">Contact Us
+      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light hover:underline">Our services 
       </a>
       <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light hover:underline">Our story
       </a>
-      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light hover:underline">Our services
+      <a href="" class="text-[#D3D3D3] xl:text-sm text-xs font-light hover:underline">Contact Us
       </a>
     </div>
     </div>
@@ -500,7 +560,7 @@
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <!-- doted animation navbar section  -->
-<script>
+<!-- <script>
   const canvas = document.getElementById('dotsCanvas');
   const ctx = canvas.getContext('2d');
   
@@ -544,7 +604,7 @@
   }
   
   drawDots();
-  </script>
+  </script> -->
   
 
    <!-- slider js -->
@@ -608,9 +668,9 @@
 
 
   <script src="https://kit.fontawesome.com/a2ada4947c.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-  </script>
+  </script> -->
 </body>
 </html>

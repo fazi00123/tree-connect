@@ -149,7 +149,7 @@ body p{
     /* width: 550px;
     height: 550px; */
     border-radius: 50%;
-    box-shadow: 0 0 25px #00ffff;
+    box-shadow: 0 0 25px white;
     overflow: hidden;
   }
 
@@ -157,7 +157,7 @@ body p{
     position: absolute;
     width: 100%;
     height: 100%;
-    background: conic-gradient(rgba(0, 255, 255, 0.3) 0deg, transparent 60deg);
+    background: conic-gradient(rgba(255, 255, 255, 0.3) 0deg, transparent 60deg);
     border-radius: 50%;
     animation: rotate 3s linear infinite;
     z-index: 1;
@@ -165,13 +165,13 @@ body p{
 
   .radar-circle {
     position: absolute;
-    border: 1px solid #00ffff55;
+    border: 1px solid white;
     border-radius: 50%;
   }
 
   .radar-line {
     position: absolute;
-    background-color: #00ffffaa;
+    background-color: white;
     z-index: 2;
   }
 
