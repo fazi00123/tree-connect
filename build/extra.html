@@ -1,130 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smooth Scroll with JS</title>
-    <link rel="stylesheet" href="../build/assets/css/style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Multi-language Website</title>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
 
-  </head>
-  <body>
+  <!-- Dropdown -->
+  <div class="relative inline-block text-left mb-6">
+    <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
+      <span id="currentLang">EN</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+    <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+      <ul class="py-1 text-sm text-gray-700">
+        <li><a href="#" onclick="setLanguage('EN')" class="block px-4 py-2 hover:bg-gray-100">EN</a></li>
+        <li><a href="#" onclick="setLanguage('FR')" class="block px-4 py-2 hover:bg-gray-100">FR</a></li>
+        <li><a href="#" onclick="setLanguage('ES')" class="block px-4 py-2 hover:bg-gray-100">ES</a></li>
+        <li><a href="#" onclick="setLanguage('DE')" class="block px-4 py-2 hover:bg-gray-100">DE</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 relative z-50">
-      <!-- Navbar Container -->
-      <div class="flex justify-between items-center bg-[#3F6893] px-8 py-5 rounded-[40px] relative z-50">
-        
-        <!-- Logo -->
-        <div>
-          <a href="index.html">
-            <img src="../build/assets/img/logo2.png" class="w-44" alt="Logo">
-          </a>
-        </div>
-    
-        <!-- Desktop Navigation -->
-        <div class="hidden lg:block">
-          <ul class="flex xl:space-x-14 space-x-10">
-            <li><a href="index.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Home</a></li>
-            
-            <!-- Dropdown -->
-            <li class="relative group">
-              <button class="text-[#D3D3D3] xl:text-lg text-base hover:text-white flex items-center gap-1">
-                Our Services
-                <svg class="w-4 h-4 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <ul class="absolute left-0 mt-3 w-44 bg-[#3F6893] text-white rounded-lg shadow-lg hidden group-hover:block z-50">
-                <li><a href="web-design.html" class="block px-4 py-2 hover:bg-[#35597C]">Web Design</a></li>
-                <li><a href="seo.html" class="block px-4 py-2 hover:bg-[#35597C]">SEO Services</a></li>
-                <li><a href="content-writing.html" class="block px-4 py-2 hover:bg-[#35597C]">Content Writing</a></li>
-              </ul>
-            </li>
-    
-            <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Our story</a></li>
-            <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white active">Contact us</a></li>
-          </ul>
-        </div>
-    
-        <!-- Language + Login -->
-        <div class="items-center hidden lg:block space-x-5">
-          <div class="relative inline-block text-left top-1">
-            <button onclick="toggleTranslate()" class="flex items-center gap-2 text-white text-base">
-              <i class="fas fa-language text-2xl"></i>
-            </button>
-            <div id="google_translate_element" class="absolute -left-10 z-50 mt-2 rounded shadow-lg bg-[#3F6893] text-white text-sm p-2" style="display: none;"></div>
-          </div>
-          <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full">Login</button>
-        </div>
-    
-        <!-- Mobile Toggle Buttons -->
-        <div class="lg:hidden z-50">
-          <!-- Hamburger -->
-          <button id="menu-open" class="text-white focus:outline-none block">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-          <!-- Close -->
-          <button id="menu-close" class="text-white focus:outline-none hidden">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="absolute left-0 right-0 hidden mt-5 bg-[#3F6893] rounded-3xl px-6 py-5 z-40 transition-all duration-300 ease-in-out">
-        <ul class="flex flex-col space-y-4 text-center">
-          <li><a href="index.html" class="text-[#D3D3D3] text-base hover:text-white">Home</a></li>
-    
-          <!-- Mobile Dropdown -->
-          <li>
-            <button onclick="toggleMobileDropdown()" class="flex items-center justify-center w-full text-[#D3D3D3] text-base hover:text-white">
-              Our Services
-              <svg class="w-4 h-4 ml-2 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <ul id="mobileDropdown" class="hidden mt-2 space-y-2">
-              <li><a href="web-design.html" class="block text-[#D3D3D3] hover:text-white">Web Design</a></li>
-              <li><a href="seo.html" class="block text-[#D3D3D3] hover:text-white">SEO Services</a></li>
-              <li><a href="content-writing.html" class="block text-[#D3D3D3] hover:text-white">Content Writing</a></li>
-            </ul>
-          </li>
-    
-          <li><a href="story.html" class="text-[#D3D3D3] text-base hover:text-white">Our story</a></li>
-          <li><a href="contact.html" class="text-[#D3D3D3] text-base hover:text-white active">Contact us</a></li>
-          <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full">Login</button></li>
-        </ul>
-      </div>
-    </nav>
-    
-    <!-- Toggle Scripts -->
-    <script>
-      function toggleTranslate() {
-        const ele = document.getElementById('google_translate_element');
-        ele.style.display = ele.style.display === 'none' ? 'block' : 'none';
+  <!-- Page Content -->
+  <h1 data-i18n="heading" class="text-2xl font-bold mb-2">Welcome</h1>
+  <p data-i18n="paragraph" class="text-gray-700 mb-4">This is a simple multi-language site.</p>
+  <button data-i18n="button" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Learn More</button>
+
+  <!-- Example of More Sections -->
+  <section class="mt-8">
+    <h2 data-i18n="about" class="text-xl font-semibold mb-2">About Us</h2>
+    <p data-i18n="aboutDesc" class="text-gray-700 mb-4">We provide web development services that cater to your needs.</p>
+  </section>
+
+  <footer class="mt-8 text-gray-500" data-i18n="footer">
+    <p>&copy; 2025 Lucky Media. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const translations = {
+      EN: {
+        heading: "Welcome",
+        paragraph: "This is a simple multi-language site.",
+        button: "Learn More",
+        about: "About Us",
+        aboutDesc: "We provide web development services that cater to your needs.",
+        footer: "&copy; 2025 Lucky Media. All Rights Reserved."
+      },
+      FR: {
+        heading: "Bienvenue",
+        paragraph: "Ceci est un site multilingue simple.",
+        button: "En savoir plus",
+        about: "À propos de nous",
+        aboutDesc: "Nous offrons des services de développement web adaptés à vos besoins.",
+        footer: "&copy; 2025 Lucky Media. Tous droits réservés."
+      },
+      ES: {
+        heading: "Bienvenido",
+        paragraph: "Este es un sitio multilingüe simple.",
+        button: "Aprende más",
+        about: "Sobre nosotros",
+        aboutDesc: "Ofrecemos servicios de desarrollo web que se adaptan a sus necesidades.",
+        footer: "&copy; 2025 Lucky Media. Todos los derechos reservados."
+      },
+      DE: {
+        heading: "Willkommen",
+        paragraph: "Dies ist eine einfache mehrsprachige Website.",
+        button: "Erfahre mehr",
+        about: "Über uns",
+        aboutDesc: "Wir bieten Webentwicklungsdienste, die auf Ihre Bedürfnisse abgestimmt sind.",
+        footer: "&copy; 2025 Lucky Media. Alle Rechte vorbehalten."
       }
-    
-      function toggleMobileDropdown() {
-        const menu = document.getElementById('mobileDropdown');
-        menu.classList.toggle('hidden');
-      }
-    
-      document.getElementById('menu-open').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.remove('hidden');
-        document.getElementById('menu-open').classList.add('hidden');
-        document.getElementById('menu-close').classList.remove('hidden');
-      });
-    
-      document.getElementById('menu-close').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.add('hidden');
-        document.getElementById('menu-open').classList.remove('hidden');
-        document.getElementById('menu-close').classList.add('hidden');
-      });
-    </script>
-    
+    };
 
-  </body>
+    function toggleDropdown() {
+      document.getElementById("dropdownMenu").classList.toggle("hidden");
+    }
+
+    function setLanguage(lang) {
+      document.getElementById("currentLang").textContent = lang;
+
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerHTML = translations[lang][key];
+      });
+
+      toggleDropdown();
+    }
+  </script>
+</body>
 </html>
