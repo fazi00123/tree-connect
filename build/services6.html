@@ -51,25 +51,24 @@
  
      <!-- Language + Login -->
      <div class="items-center hidden lg:block space-x-5">
-       <div class="relative inline-block text-left">
-         <div class="relative inline-block text-left">
-           <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
-             <span id="currentLang">EN</span>
-             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-             </svg>
-           </button>
-           <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
-             <ul class="py-1 text-sm text-gray-700">
-               <li><a href="../build/services6.html" onclick="setLanguage('EN')" class="block px-4 py-2 hover:bg-gray-100">EN</a></li>
-               <li><a href="../build/french/services6.html" onclick="setLanguage('FR')" class="block px-4 py-2 hover:bg-gray-100">FR</a></li>
-               <li><a href="#" onclick="setLanguage('ES')" class="block px-4 py-2 hover:bg-gray-100">ES</a></li>
-               <li><a href="#" onclick="setLanguage('DE')" class="block px-4 py-2 hover:bg-gray-100">DE</a></li>
-             </ul>
-           </div>
-         </div>
-       
-       </div>
+      <div class="relative inline-block text-left">
+        <div class="relative inline-block text-left">
+          <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
+            <span id="currentLang">EN</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+            <ul class="py-1 text-sm text-gray-700 text-center">
+              <li><a href="../build/services6.html" onclick="setLanguage('EN')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">EN</a></li>
+              <li><a href="../build/french/services6.html" onclick="setLanguage('FR')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">FR</a></li>
+             
+            </ul>
+          </div>
+        </div>
+      
+      </div>
        <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full font-medium">Login</button>
      </div>
  
@@ -116,6 +115,21 @@
        <li><a href="story.html" class="text-[#D3D3D3] text-base hover:text-white">Our story</a></li>
        <li><a href="contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Contact us</a></li>
        <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full font-medium">Login</button></li>
+
+       <li class="text-center relative">
+        <button onclick="toggleMobileLangDropdown()" class="flex justify-center items-center gap-2 px-4 py-2 bg-white text-black border border-gray-300 rounded shadow">
+          <span id="currentLang">EN</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="mobileLangDropdown" class="hidden w-40 mt-2 bg-white border border-gray-200 rounded shadow-lg absolute z-50">
+          <ul class="py-1 text-sm text-gray-700">
+            <li><a href="../build/services.html" onclick="setLanguage('EN')" class="block px-4 py-2 hover:bg-[#3F6893] hover:text-white">EN</a></li>
+            <li><a href="../build/french/services.html" onclick="setLanguage('FR')" class="block px-4 py-2 hover:bg-[#3F6893] hover:text-white">FR</a></li>
+          </ul>
+        </div>
+      </li>
      </ul>
    </div>
    
@@ -349,6 +363,22 @@
 </footer>
 
 <!-- drop down  -->
+
+<script>
+  function toggleMobileLangDropdown() {
+    const dropdown = document.getElementById("mobileLangDropdown");
+    dropdown.classList.toggle("hidden");
+  }
+
+  // Optional: Close if clicked outside
+  document.addEventListener("click", function(event) {
+    const dropdown = document.getElementById("mobileLangDropdown");
+    const button = event.target.closest("button");
+    if (!dropdown.contains(event.target) && !button) {
+      dropdown.classList.add("hidden");
+    }
+  });
+</script>
 <script>
 
   function toggleDropdown() {
