@@ -193,14 +193,11 @@ body p{
 
   
   /* Floating WhatsApp Button */
-  /* .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+  .whatsapp-float {
     background-color: #25D366;
     color: white;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -220,4 +217,4 @@ body p{
 .whatsapp-float img {
     width: 40px;
     height: 40px;
-} */
+}
