@@ -242,10 +242,45 @@
                       <input type="tel" id="phone" name="phone"class="w-full py-4 pl-40 pr-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg focus:border-[#D3D3D3] focus:outline-none" placeholder="Phone Number">
                     <input type="text" id="" name="" class=" w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg focus:border-[#D3D3D3] focus:outline-none" placeholder="Company Name (optional)">
                     <textarea name="" id="" rows="6" class=" w-full py-4 px-6 rounded-2xl border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg focus:border-[#D3D3D3] focus:outline-none" placeholder="Your Message"></textarea>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" class="form-checkbox checked:bg-transparent h-4 w-4 text-[#D3D3D3]" checked>
-                        <span class="ml-5 text-white text-sm">I'm not a robot</span>
-                      </label>
+                    <!-- Checkbox -->
+<label class="inline-flex items-center">
+  <input type="checkbox" id="robotCheck" class="form-checkbox checked:bg-transparent h-4 w-4 text-[#D3D3D3]">
+  <span class="ml-5 text-white text-sm">I'm not a robot</span>
+</label>
+
+<!-- Captcha Animation Box -->
+<div id="captchaBox" class="mt-5 hidden flex items-center gap-4">
+  <!-- Spinner -->
+  <div class="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+  <p class="text-white text-sm">Verifying...</p>
+</div>
+
+<!-- Success Message -->
+<p id="verifiedMessage" class="hidden text-green-400 mt-4">✔ You are verified!</p>
+
+<!-- Script -->
+<script>
+  const checkbox = document.getElementById("robotCheck");
+  const captchaBox = document.getElementById("captchaBox");
+  const verifiedMsg = document.getElementById("verifiedMessage");
+
+  checkbox.addEventListener("change", function () {
+    if (this.checked) {
+      captchaBox.classList.remove("hidden");
+      verifiedMsg.classList.add("hidden");
+
+      // Simulate captcha loading
+      setTimeout(() => {
+        captchaBox.classList.add("hidden");
+        verifiedMsg.classList.remove("hidden");
+      }, 3000); // 3 seconds
+    } else {
+      captchaBox.classList.add("hidden");
+      verifiedMsg.classList.add("hidden");
+    }
+  });
+</script>
+
                   
                 </form>
                 <a href="#popup1">
@@ -339,14 +374,14 @@
       <!-- ❌ Close Button -->
       <button onclick="closePopup()" class="absolute top-0 right-2 text-white hover:text-[#304B68] text-5xl font-bold">&times;</button>
   
-      <div class="flex justify-center bg-[#3F6893] rounded-t-xl py-5">
+      <div class="flex justify-center bg-[#3F6893] rounded-t-xl py-4">
         <img src="../build/assets/img/thanks.png" class="w-28" alt="">
       </div>
-      <div class="bg-[#304B68] rounded-b-xl py-14">
-      <h1 class="2xl:text-3xl text-xl text-[#ffffff] font-semibold pt-5 ">
+      <div class="bg-[#304B68] rounded-b-xl py-10">
+      <h1 class="2xl:text-3xl text-xl text-[#ffffff] font-semibold">
         Thank you!
       </h1>
-      <p class="text-[#D3D3D3] xl:text-lg text-sm pt-2 px-5">
+      <p class="text-[#D3D3D3] xl:text-lg text-sm pt-2 px-4">
         We have received your request and assigned it to one of our experts,
 who will contact you shortly to follow up.
       </p>
