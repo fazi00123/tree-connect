@@ -5,73 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Chatbot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+<!-- intl-tel-input CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.css" />
+
+
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 flex flex-col space-y-4">
-    <h2 class="text-2xl font-bold text-center text-gray-800">AI Chatbot</h2>
-    <div id="chat" class="flex-1 h-80 overflow-y-auto space-y-2 p-2 border rounded-lg bg-gray-50 text-sm text-gray-700">
-      <!-- Messages will appear here -->
-    </div>
-    <form id="chat-form" class="flex space-x-2">
-      <input id="user-input" type="text" placeholder="Type a message..." class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Send</button>
-    </form>
-  </div>
-
-  <script>
-    const form = document.getElementById('chat-form');
-    const input = document.getElementById('user-input');
-    const chatBox = document.getElementById('chat');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const message = input.value.trim();
-      if (!message) return;
-
-      appendMessage('User', message);
-      input.value = '';
-
-      // Send to backend (PHP, Node, etc.)
-      const res = await fetch('/chat.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message })
-      });
-      const data = await res.json();
-
-      appendMessage('Bot', data.reply);
-    });
-
-    function appendMessage(sender, text) {
-      const msg = document.createElement('div');
-      msg.className = `p-2 rounded-lg ${sender === 'User' ? 'bg-blue-100 text-right' : 'bg-green-100 text-left'}`;
-      msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
-      chatBox.appendChild(msg);
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
-  </script>
 
 
-<!-- AI Chatbot Button -->
-<button onclick="document.getElementById('dfchat').classList.toggle('hidden')" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg z-50">
-  💬
-</button>
+<!-- Phone Input Field -->
+<form class="space-y-6 pt-10 xl:pt-20">
+  <input type="text" placeholder="Your Name" class="w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg">
+  
+  <!-- Phone with flag + code -->
+  <input type="tel" id="phone" name="phone"
+         class="w-full py-4 pl-[90px] pr-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg">
 
-<!-- Chatbox -->
-<div id="dfchat" class="hidden fixed bottom-20 right-6 w-80 h-[500px] shadow-xl rounded-xl overflow-hidden z-50">
-  <iframe
-    allow="microphone;"
-    width="100%"
-    height="100%"
-    src="https://console.dialogflow.com/api-client/demo/embedded/YOUR_AGENT_ID"
-  ></iframe>
-</div>
+  <input type="text" placeholder="Company Name (optional)" class="w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg">
+  
+  <textarea rows="6" placeholder="Your Message" class="w-full py-4 px-6 rounded-2xl border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg"></textarea>
+
+  <label class="inline-flex items-center">
+    <input type="checkbox" class="form-checkbox h-4 w-4 text-[#D3D3D3] bg-transparent border-[#D3D3D3]" checked>
+    <span class="ml-5 text-white text-sm">I'm not a robot</span>
+  </label>
+</form>
+
+<!-- intl-tel-input JS -->
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
+
+<!-- Optional geoIpLookup -->
 <script>
-  window.chatbaseConfig = {
-    chatbotId: "XV0PN-sLp1xulML2lyHNy",
-  };
+  const input = document.querySelector("#phone");
+  window.intlTelInput(input, {
+    separateDialCode: true,
+    initialCountry: "auto",
+    geoIpLookup: function (callback) {
+      fetch('https://ipinfo.io/json?token=<your_token_here>')
+        .then(res => res.json())
+        .then(data => callback(data.country))
+        .catch(() => callback('us'));
+    },
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/utils.js"
+  });
 </script>
-<script src="https://www.chatbase.co/embed.min.js" chatbotId="XV0PN-sLp1xulML2lyHNy" defer></script>
+
+<!-- Custom CSS to make dial code + flag background transparent -->
+<style>
+  .iti {
+    width: 100%;
+  }
+
+  .iti__flag-container {
+    background-color: transparent !important;
+    border-right: 1px solid #D3D3D3;
+    padding-right: 10px;
+  }
+
+  .iti--separate-dial-code .iti__selected-flag {
+    background-color: transparent !important;
+  }
+
+  .iti__selected-dial-code {
+    color: #D3D3D3 !important;
+    font-size: 1.125rem; /* text-lg */
+  }
+</style>
+
 
 </body>
 </html>

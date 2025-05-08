@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>TreeConnect-Contact</title>
     <link rel="stylesheet" href="../build/assets/css/style.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 
     <script src="//code.tidio.co/vxiqlrt5ipq4shg4h60brissqd8hj15z.js" async></script>
+
+<!-- intl-tel-input CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.css" />
+
+
 </head>
 <body class="bg-[#304B68] overflow-x-hidden">
   <nav class="2xl:px-20 lg:px-10 px-5 2xl:pt-16 lg:pt-9 pt-5 relative z-50">
@@ -54,21 +59,47 @@
      <!-- Language + Login -->
      <div class="items-center hidden lg:block space-x-5">
       <div class="relative inline-block text-left">
-        <div class="relative inline-block text-left">
-          <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
-            <span id="currentLang">EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative inline-block text-left top-1">
+          <button onclick="toggleDropdown()" class="flex items-center">
+            <img id="currentFlag" src="../build/assets/img/united-kingdom.png" class="w-6 h-6" alt="flag">
+            <svg class="w-4 h-4 ml-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+        
+          <div id="dropdownMenu" class="hidden absolute mt-2 w-24 bg-[#3F6893] border border-[#3F6893] z-10">
             <ul class="py-1 text-sm text-gray-700 text-center">
-              <li><a href="../build/contact.html" onclick="setLanguage('EN')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">EN</a></li>
-              <li><a href="../build/french/contact.html" onclick="setLanguage('FR')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">FR</a></li>
-             
+              <li>
+                <a href="../build/contact.html" onclick="event.preventDefault(); setFlag('../build/assets/img/united-kingdom.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/assets/img/united-kingdom.png" class="w-7" alt="England Flag">
+                </a>
+              </li>
+              <li>
+                <a href="../build/french/contact.html" onclick="event.preventDefault(); setFlag('../build/assets/img/france.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/assets/img/france.png" class="w-7" alt="France Flag">
+                </a>
+              </li>
             </ul>
           </div>
         </div>
+        
+        <script>
+          function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("hidden");
+          }
+        
+          function setFlag(flagPath, redirectUrl) {
+            document.getElementById("currentFlag").src = flagPath;
+            document.getElementById("dropdownMenu").classList.add("hidden");
+        
+            // Delay page redirect so flag updates first
+            setTimeout(function () {
+              window.location.href = redirectUrl;
+            }, 100);
+          }
+        </script>
+        
+        
       
       </div>
        <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full font-medium">Login</button>
@@ -117,22 +148,32 @@
        <li><a href="story.html" class="text-[#D3D3D3] text-base hover:text-white">Our story</a></li>
        <li><a href="contact.html" class="text-[#D3D3D3] text-base hover:text-white active">Contact us</a></li>
 
-       <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full font-medium">Login</button></li>
+       <li><button class="text-[#D3D3D3]">Login</button></li>
 
-       <li class="text-center relative">
-        <button onclick="toggleMobileLangDropdown()" class="flex justify-center items-center gap-2 px-4 py-2 bg-white text-black border border-gray-300 rounded shadow">
-          <span id="currentLang">EN</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="mobileLangDropdown" class="hidden w-40 mt-2 bg-white border border-gray-200 rounded shadow-lg absolute z-50">
-          <ul class="py-1 text-sm text-gray-700">
-            <li><a href="../build/services.html" onclick="setLanguage('EN')" class="block py-2 hover:bg-[#3F6893] hover:text-white">EN</a></li>
-            <li><a href="../build/french/services.html" onclick="setLanguage('FR')" class="block py-2 hover:bg-[#3F6893] hover:text-white">FR</a></li>
-          </ul>
-        </div>
+       <li class="flex justify-center space-x-4 mt-4">
+        <a href="../build/contact.html" onclick="event.preventDefault(); setFlagMobile('../build/assets/img/united-kingdom.png', this.href)">
+          <img src="../build/assets/img/united-kingdom.png" class="w-7 h-7" alt="UK Flag">
+        </a>
+        <a href="../build/french/contact.html" onclick="event.preventDefault(); setFlagMobile('../build/assets/img/france.png', this.href)">
+          <img src="../build/assets/img/france.png" class="w-7 h-7" alt="France Flag">
+        </a>
       </li>
+      <script>
+        function setFlagMobile(flagPath, redirectUrl) {
+          // Optionally change current flag (if you want to reflect it in desktop as well)
+          const flagImg = document.getElementById("currentFlag");
+          if (flagImg) flagImg.src = flagPath;
+      
+          // Close mobile menu
+          document.getElementById("mobile-menu").classList.add("hidden");
+      
+          // Redirect after slight delay
+          setTimeout(function () {
+            window.location.href = redirectUrl;
+          }, 100);
+        }
+      </script>
+            
      </ul>
    </div>
    
@@ -196,10 +237,11 @@
                 <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >We're here to help you connect the dots and grow your business smarter.</p>
 
                 <form action="" class="xl:pt-20 pt-10 space-y-10">
-                    <input type="text" id="" name="" class=" w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg" placeholder="Your Name">
-                    <input type="text" id="" name="" class=" w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg" placeholder="Phone Number">
-                    <input type="text" id="" name="" class=" w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg" placeholder="Company Name (optional)">
-                    <textarea name="" id="" rows="6" class=" w-full py-4 px-6 rounded-2xl border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg" placeholder="Your Message"></textarea>
+                    <input type="text" id="" name="" class=" w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg focus:border-[#D3D3D3] focus:outline-none" placeholder="Your Name">
+                      <!-- Phone with flag + code -->
+                      <input type="tel" id="phone" name="phone"class="w-full py-4 pl-40 pr-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg focus:border-[#D3D3D3] focus:outline-none" placeholder="Phone Number">
+                    <input type="text" id="" name="" class=" w-full py-4 px-6 rounded-full border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg focus:border-[#D3D3D3] focus:outline-none" placeholder="Company Name (optional)">
+                    <textarea name="" id="" rows="6" class=" w-full py-4 px-6 rounded-2xl border border-[#D3D3D3] text-[#D3D3D3] bg-transparent text-lg focus:border-[#D3D3D3] focus:outline-none" placeholder="Your Message"></textarea>
                     <label class="inline-flex items-center">
                         <input type="checkbox" class="form-checkbox checked:bg-transparent h-4 w-4 text-[#D3D3D3]" checked>
                         <span class="ml-5 text-white text-sm">I'm not a robot</span>
@@ -295,52 +337,42 @@
     <div class="popup bg-[#F5F5F5] relative rounded-lg  w-full">
       
       <!-- ❌ Close Button -->
-      <button onclick="closePopup()" class="absolute top-1 right-2 text-white hover:text-gray-700 text-5xl font-bold">&times;</button>
+      <button onclick="closePopup()" class="absolute top-0 right-2 text-white hover:text-[#304B68] text-5xl font-bold">&times;</button>
   
       <div class="flex justify-center bg-[#3F6893] rounded-t-xl py-5">
-        <img src="../build/assets/img/thanks.png" class="w-48" alt="">
+        <img src="../build/assets/img/thanks.png" class="w-28" alt="">
       </div>
-      <div class="bg-[#304B68] rounded-b-xl py-16">
+      <div class="bg-[#304B68] rounded-b-xl py-14">
       <h1 class="2xl:text-3xl text-xl text-[#ffffff] font-semibold pt-5 ">
         Thank you!
       </h1>
-      <p class="text-[#D3D3D3] xl:text-lg text-sm pt-2">
-        We’ll get back to you in 24h
+      <p class="text-[#D3D3D3] xl:text-lg text-sm pt-2 px-5">
+        We have received your request and assigned it to one of our experts,
+who will contact you shortly to follow up.
       </p>
     </div>
     </div>
   </div>
 
 <!-- Sticky Social Icons with Hover Labels -->
-<div class="fixed bottom-32 right-9 z-50 flex flex-col items-center space-y-3">
+<div class="fixed bottom-32 right-9 z-20 flex flex-col items-center space-y-3">
 
   <!-- WhatsApp -->
   <a href="https://wa.me/+41798008483?text=Hello!%20I%20need%20help" target="_blank"
-     class="group flex items-center bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+     class="group flex items-center bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105">
     <span class="p-3 whatsapp-float">
-      <!-- WhatsApp Icon -->
-      <!-- <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.157 5.318 5.478 0 12.057 0c3.181 0 6.167 1.24 8.413 3.488a11.82 11.82 0 013.488 8.412c-.003 6.627-5.384 12.01-12.01 12.01a11.88 11.88 0 01-5.943-1.588L.057 24zM12.057 2.197c-5.42 0-9.83 4.41-9.83 9.83 0 2.083.64 4.018 1.853 5.676l-.995 3.64 3.728-.98a9.813 9.813 0 004.315 1.074h.002c5.42 0 9.83-4.41 9.83-9.83 0-2.627-1.023-5.095-2.876-6.949a9.794 9.794 0 00-6.027-2.461zm5.467 13.27c-.228-.114-1.35-.664-1.56-.739-.21-.076-.362-.114-.514.114s-.588.738-.72.89c-.133.152-.266.171-.494.057-.228-.114-.963-.355-1.832-1.134-.678-.603-1.134-1.35-1.267-1.577-.133-.228-.014-.351.1-.465.103-.102.228-.266.342-.4.114-.133.152-.228.228-.38.076-.152.038-.285-.019-.4-.057-.114-.514-1.237-.705-1.695-.185-.444-.373-.383-.514-.39l-.438-.008c-.152 0-.4.057-.61.285s-.8.781-.8 1.9.82 2.207.934 2.361c.114.152 1.61 2.463 3.903 3.454.546.236.972.377 1.304.482.547.174 1.045.149 1.437.09.438-.065 1.35-.552 1.54-1.087.19-.533.19-.99.133-1.087-.057-.095-.209-.152-.438-.266z"/>
-      </svg> -->
-
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </span>
-    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:pl-2 group-hover:pr-4 transition-all duration-300">
-      WhatsApp
     </span>
   </a>
 
   <!-- Clendy -->
   <a href="https://calendly.com/treeconnect" target="_blank"
-     class="group flex items-center bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out">
+     class="group flex items-center bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105">
     <span class="p-3">
       <!-- Clendy Icon (Placeholder Square) -->
       <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" />
       </svg>
-    </span>
-    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:pl-2 group-hover:pr-4 transition-all duration-300">
-      Clendy
     </span>
   </a>
 
@@ -383,23 +415,6 @@
   }
 </script>
 
-  <!-- Google Translate Script -->
-<!-- <script type="text/javascript">
-  function toggleTranslate() {
-    const el = document.getElementById("google_translate_element");
-    el.style.display = el.style.display === "none" ? "block" : "none";
-  }
-
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
-
 <!-- pop up -->
   <script>
     function closePopup() {
@@ -425,11 +440,27 @@
    requestAnimationFrame(raf);
  </script>
 
+<!-- intl-tel-input JS -->
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
+
+<!-- Optional geoIpLookup -->
+<script>
+  const input = document.querySelector("#phone");
+  window.intlTelInput(input, {
+    separateDialCode: true,
+    initialCountry: "auto",
+    geoIpLookup: function (callback) {
+      fetch('https://ipinfo.io/json?token=<your_token_here>')
+        .then(res => res.json())
+        .then(data => callback(data.country))
+        .catch(() => callback('us'));
+    },
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/utils.js"
+  });
+</script>
+
 
     <script src="https://kit.fontawesome.com/a2ada4947c.js" crossorigin="anonymous"></script>
-    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script> -->
+  
 </body>
 </html>

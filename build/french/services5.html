@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services</title>
+    <title>TreeConnect-Nos services</title>
     <link rel="stylesheet" href="../build/../assets/css/style.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 </head>
@@ -45,28 +45,54 @@
         </li>
 
         <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Notre histoire</a></li>
-        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Contact</a></li>
+        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Nous Contacter</a></li>
       </ul>
     </div>
 
     <!-- Language + Login -->
     <div class="items-center hidden lg:block space-x-5">
       <div class="relative inline-block text-left">
-        <div class="relative inline-block text-left">
-          <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
-            <span id="currentLang">EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative inline-block text-left top-1">
+          <button onclick="toggleDropdown()" class="flex items-center">
+            <img id="currentFlag" src="../build/../assets/img/france.png" class="w-6 h-6" alt="flag">
+            <svg class="w-4 h-4 ml-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+        
+          <div id="dropdownMenu" class="hidden absolute mt-2 w-24 bg-[#3F6893] border border-[#3F6893] z-10">
             <ul class="py-1 text-sm text-gray-700 text-center">
-              <li><a href="../services5.html" onclick="setLanguage('EN')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">EN</a></li>
-              <li><a href="" onclick="setLanguage('FR')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">FR</a></li>
-             
+              <li>
+                <a href="../services5.html" onclick="event.preventDefault(); setFlag('../build/../assets/img/united-kingdom.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/united-kingdom.png" class="w-7" alt="England Flag">
+                </a>
+              </li>
+              <li>
+                <a href="#" onclick="event.preventDefault(); setFlag('../build/../assets/img/france.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/france.png" class="w-7" alt="France Flag">
+                </a>
+              </li>
             </ul>
           </div>
         </div>
+        
+        <script>
+          function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("hidden");
+          }
+        
+          function setFlag(flagPath, redirectUrl) {
+            document.getElementById("currentFlag").src = flagPath;
+            document.getElementById("dropdownMenu").classList.add("hidden");
+        
+            // Delay page redirect so flag updates first
+            setTimeout(function () {
+              window.location.href = redirectUrl;
+            }, 100);
+          }
+        </script>
+        
+        
       
       </div>
       <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full font-medium">Login</button>
@@ -113,23 +139,31 @@
       </li>
 
       <li><a href="../french/story.html" class="text-[#D3D3D3] text-base hover:text-white">Notre histoire</a></li>
-      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Contact</a></li>
-      <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full font-medium">Login</button></li>
-
-      <li class="text-center relative">
-        <button onclick="toggleMobileLangDropdown()" class="flex justify-center items-center gap-2 px-4 py-2 bg-white text-black border border-gray-300 rounded shadow">
-          <span id="currentLang">EN</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="mobileLangDropdown" class="hidden w-40 mt-2 bg-white border border-gray-200 rounded shadow-lg absolute z-50">
-          <ul class="py-1 text-sm text-gray-700">
-            <li><a href="../services5.html" onclick="setLanguage('EN')" class="block py-2 hover:bg-[#3F6893] hover:text-white">EN</a></li>
-            <li><a href="" onclick="setLanguage('FR')" class="block py-2 hover:bg-[#3F6893] hover:text-white">FR</a></li>
-          </ul>
-        </div>
+      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Nous Contacter</a></li>
+      <li><button class="text-[#D3D3D3]">Login</button></li>
+      <li class="flex justify-center space-x-4 mt-4">
+        <a href="../services5.html" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/united-kingdom.png', this.href)">
+          <img src="../build/../assets/img/united-kingdom.png" class="w-7 h-7" alt="UK Flag">
+        </a>
+        <a href="#" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/france.png', this.href)">
+          <img src="../build/../assets/img/france.png" class="w-7 h-7" alt="France Flag">
+        </a>
       </li>
+      <script>
+        function setFlagMobile(flagPath, redirectUrl) {
+          // Optionally change current flag (if you want to reflect it in desktop as well)
+          const flagImg = document.getElementById("currentFlag");
+          if (flagImg) flagImg.src = flagPath;
+      
+          // Close mobile menu
+          document.getElementById("mobile-menu").classList.add("hidden");
+      
+          // Redirect after slight delay
+          setTimeout(function () {
+            window.location.href = redirectUrl;
+          }, 100);
+        }
+      </script>
     </ul>
   </div>
   
@@ -174,7 +208,7 @@
     <!-- Left Side -->
     <div class="">
       <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" >
-        Accounting & Finance
+        Comptabilité & Finance
       </h1>
       <!-- <div class="2xl:pt-16 pt-8" >
         <button class="hover:bg-[#3F6893] border border-white hover:border-[#3F6893] lg:text-lg text-base xl:px-10 font-medium xl:py-3 px-6 py-2 rounded-full text-white">
@@ -186,7 +220,9 @@
     <!-- Right Side -->
     <div class="">
       <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7" >
-        Our expert team ensures your financial records are accurate, up-to-date, and compliant, providing you with a clear view of your business's financial health. From bookkeeping and tax preparation to in-depth financial analysis, we offer the insights you need to make informed decisions. We transform complex data into actionable reports, giving you the tools and confidence to navigate your financial journey, optimize cash flow, and drive profitability.
+        Notre équipe d’experts veille à ce que vos données financières soient fiables, à jour et conformes. Notre objectif : vous offrir une vision claire de la santé financière de votre
+entreprise. De la comptabilité à l’analyse approfondie, en passant par les déclarations fiscales, nous transformons les chiffres complexes en tableaux de bord clairs et utiles pour
+vous aider à piloter sereinement votre activité, maîtriser votre trésorerie et améliorer votre rentabilité.
       </p>
     </div>
 
@@ -209,33 +245,40 @@
 
 
         <div class="">
-            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">What We Do for You</h1>
+            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Ce que nous faisons pour vous
+            </h1>
         <div class="flex md:flex-row flex-col 2xl:gap-80 xl:gap-60 lg:gap-40 md:gap-20">
             <div class="xl:pt-16 pt-8 lg:w-1/2 w-full">
                 <div>
                     <img src="../build/../assets/img/invoice.png"  alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Bookkeeping, invoicing, supplier/client accounting</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Streamline your financial processes with our comprehensive bookkeeping and invoicing.
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Comptabilité, facturation, gestion fournisseurs et clients</h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Simplifiez vos processus financiers grâce à une gestion comptable complète et fluide.
                     </p>
                 </div>
                 <div class="xl:pt-20 pt-10">
                     <img src="../build/../assets/img/report.png"  alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Monthly reports and year-end closings</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Stay on top of your financial health with detailed monthly reports and seamless year-end closings. 
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Rapports mensuels et clôtures de fin d’année</h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Suivez de près la santé de votre entreprise avec des rapports réguliers et des clôtures sans
+                      friction.
+                       
                     </p>
                 </div>
             </div>
                 <div class="xl:pt-16 pt-8 lg:w-1/2 w-full">
                     <div>
                         <img src="../build/../assets/img/tax.png"  alt="">
-                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >VAT and tax declarations</h1>
-                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Stay compliant with accurate and timely VAT and tax declarations.
+                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Déclarations TVA et fiscales
+                        </h1>
+                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Restez conforme en toute tranquillité, avec des déclarations précises et
+                          transmises dans les délais.
+                          
                         </p>
                     </div>
                     <div class="xl:pt-20 pt-10">
                         <img src="../build/../assets/img/dash.png"  alt="">
-                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Cash flow and profitability dashboards</h1>
-                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Gain real-time insights into your business’s financial health with our cash flow and profitability dashboards.
+                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Suivi de trésorerie et tableaux de bord de rentabilité</h1>
+                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Bénéficiez d’indicateurs clairs et en temps réel pour piloter votre trésorerie et
+                          vos marges.
                         </p>
                     </div>
                 </div>
@@ -251,8 +294,8 @@
         <div class="bg-[#3F6893] xl:p-10 p-5 rounded-2xl">
       
             <div class="w-full pt-4 md:pt-0">
-                <h1 class="text-white 2xl:text-4xl lg:text-3xl text-2xl">Why It Matters</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[44px] lg:leading-8 leading-7" >Numbers only matter when you can use them. We make your finances clear, accurate, and helpful.</p>
+                <h1 class="text-white 2xl:text-4xl lg:text-3xl text-2xl">Pourquoi c’est essentiel</h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[44px] lg:leading-8 leading-7" >Les chiffres n’ont de valeur que lorsqu’ils vous aident à décider. Nous rendons vos données financières claires, fiables et réellement utiles.</p>
                 <!-- <div class="2xl:pt-16 pt-8" >
                     <button class="border border-white lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full text-white"> How It Works</button>
                   </div> -->
@@ -264,19 +307,22 @@
       <section class="2xl:px-28 lg:px-10 px-5">
 
       <div class="2xl:pt-36 lg:pt-24 pt-10">
-        <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" >Benefits for You</h1>
+        <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" >Bénéfices pour vous
+        </h1>
     <div class="flex md:flex-row flex-col 2xl:gap-80 xl:gap-60 lg:gap-40 md:gap-20">
         <div class="xl:pt-16 pt-8 lg:w-1/2 w-full">
             <div>
                 <img src="../build/../assets/img/update.png"  alt="">
-                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Updated, clean financials every month</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Keep your finances in perfect order with updated, clean financials every month.
+                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Des finances à jour, chaque mois
+                </h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Gardez une comptabilité propre, claire et toujours à jour, pour avancer en toute sérénité.
+
                 </p>
             </div>
             <div class="xl:pt-20 pt-10">
                 <img src="../build/../assets/img/time.png"  alt="">
-                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Time saved and fewer mistakes</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Save valuable time and reduce errors with our streamlined processes
+                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Moins d’erreurs, plus de temps pour l’essentiel</h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Nos processus fluides vous font gagner du temps et réduisent les risques d’erreur.
                 </p>
             </div>
         </div>
@@ -284,14 +330,16 @@
                 
                 <div>
                     <img src="../build/../assets/img/dicision.png"  alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Better decisions based on data</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Make smarter, more informed decisions with data driven insights.
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Des décisions qui reposent sur du concret</h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Prenez les bonnes décisions au bon moment grâce à des données
+                      claires et exploitables.
                     </p>
                 </div>
                 <div class="xl:pt-20 pt-10">
                     <img src="../build/../assets/img/health.png" alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Clear view of your business health</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Gain a clear and comprehensive view of your business's financial health with our detailed reporting and analytics.
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Une lecture simple de ce qui compte vraiment</h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Accédez aux bons indicateurs, au bon moment, pour garder la maîtrise de
+                      votre activité.
                     </p>
                 </div>
             </div>
@@ -305,11 +353,15 @@
     <section class="2xl:px-28 lg:px-10 px-5 2xl:pt-32 lg:pt-20 pt-10">
         <div class="flex justify-between">
         <div>
-            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Ready to Launch Smarter?</h1>
-            <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Let TreeConnect handle the setup while you focus on growing your vision.</p>
+            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Prêt à y voir clair dans vos chiffres?
+            </h1>
+            <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Laissez TreeConnect gérer vos finances avec rigueur et
+              transparence, pendant que vous vous concentrez sur le
+              développement de votre activité.
+              </p>
             <div class="2xl:pt-16 pt-10" >
               <a href="https://calendly.com/treeconnect">
-                <button class="border border-white lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full text-white"> Talk to an Expert</button>
+                <button class="border border-white lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full text-white">Parler à un expert</button>
               </a>
               </div>
             </div>
@@ -344,12 +396,12 @@
       </a>
       <a href="../french/story.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Notre histoire
       </a>
-      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Contact
+      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Nous Contacter
 
       </a>
       <a href="../french/privacy.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Politique de confidentialité et cookies
       </a>
-      <a href="../terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
+      <a href="../french/terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
 
       </a>
     </div>

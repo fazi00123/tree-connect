@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms And Condition</title>
+    <title>TreeConnect-Politique de confidentialité et cookies</title>
     <link rel="stylesheet" href="../build/../assets/css/style.css">
 </head>
 <body class="bg-[#304B68] overflow-x-hidden">
@@ -44,28 +44,54 @@
         </li>
 
         <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Notre histoire</a></li>
-        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Contact</a></li>
+        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Nous Contacter</a></li>
       </ul>
     </div>
 
     <!-- Language + Login -->
     <div class="items-center hidden lg:block space-x-5">
       <div class="relative inline-block text-left">
-        <div class="relative inline-block text-left">
-          <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
-            <span id="currentLang">EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative inline-block text-left top-1">
+          <button onclick="toggleDropdown()" class="flex items-center">
+            <img id="currentFlag" src="../build/../assets/img/france.png" class="w-6 h-6" alt="flag">
+            <svg class="w-4 h-4 ml-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+        
+          <div id="dropdownMenu" class="hidden absolute mt-2 w-24 bg-[#3F6893] border border-[#3F6893] z-10">
             <ul class="py-1 text-sm text-gray-700 text-center">
-              <li><a href="../privacy.html" onclick="setLanguage('EN')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">EN</a></li>
-              <li><a href="#" onclick="setLanguage('FR')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">FR</a></li>
-             
+              <li>
+                <a href="../privacy.html" onclick="event.preventDefault(); setFlag('../build/../assets/img/united-kingdom.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/united-kingdom.png" class="w-7" alt="England Flag">
+                </a>
+              </li>
+              <li>
+                <a href="#" onclick="event.preventDefault(); setFlag('../build/../assets/img/france.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/france.png" class="w-7" alt="France Flag">
+                </a>
+              </li>
             </ul>
           </div>
         </div>
+        
+        <script>
+          function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("hidden");
+          }
+        
+          function setFlag(flagPath, redirectUrl) {
+            document.getElementById("currentFlag").src = flagPath;
+            document.getElementById("dropdownMenu").classList.add("hidden");
+        
+            // Delay page redirect so flag updates first
+            setTimeout(function () {
+              window.location.href = redirectUrl;
+            }, 100);
+          }
+        </script>
+        
+        
       
       </div>
       <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full font-medium">Login</button>
@@ -112,23 +138,31 @@
       </li>
 
       <li><a href="../french/story.html" class="text-[#D3D3D3] text-base hover:text-white">Notre histoire</a></li>
-      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Contact</a></li>
-      <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full font-medium">Login</button></li>
-
-      <li class="text-center relative">
-        <button onclick="toggleMobileLangDropdown()" class="flex justify-center items-center gap-2 px-4 py-2 bg-white text-black border border-gray-300 rounded shadow">
-          <span id="currentLang">EN</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="mobileLangDropdown" class="hidden w-40 mt-2 bg-white border border-gray-200 rounded shadow-lg absolute z-50">
-          <ul class="py-1 text-sm text-gray-700">
-            <li><a href="../privacy.html" onclick="setLanguage('EN')" class="block py-2 hover:bg-[#3F6893] hover:text-white">EN</a></li>
-            <li><a href="" onclick="setLanguage('FR')" class="block py-2 hover:bg-[#3F6893] hover:text-white">FR</a></li>
-          </ul>
-        </div>
+      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Nous Contacter</a></li>
+      <li><button class="text-[#D3D3D3]">Login</button></li>
+      <li class="flex justify-center space-x-4 mt-4">
+        <a href="../privacy.html" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/united-kingdom.png', this.href)">
+          <img src="../build/../assets/img/united-kingdom.png" class="w-7 h-7" alt="UK Flag">
+        </a>
+        <a href="#" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/france.png', this.href)">
+          <img src="../build/../assets/img/france.png" class="w-7 h-7" alt="France Flag">
+        </a>
       </li>
+      <script>
+        function setFlagMobile(flagPath, redirectUrl) {
+          // Optionally change current flag (if you want to reflect it in desktop as well)
+          const flagImg = document.getElementById("currentFlag");
+          if (flagImg) flagImg.src = flagPath;
+      
+          // Close mobile menu
+          document.getElementById("mobile-menu").classList.add("hidden");
+      
+          // Redirect after slight delay
+          setTimeout(function () {
+            window.location.href = redirectUrl;
+          }, 100);
+        }
+      </script>
     </ul>
   </div>
   
@@ -162,26 +196,34 @@
 <section class="2xl:px-20 lg:px-10 px-5 2xl:pt-44 lg:pt-28 md:pt-20 pt-14">
     
       <div class="w-full">
-        <h1 class="lg:text-5xl text-3xl text-white text-center">Data Protection Statement - TreeConnect</h1>
+        <h1 class="lg:text-5xl text-3xl text-white text-center">Politique de confidentialité – TreeConnect
+        </h1>
       </div>
 
     <div class="lg:pt-20 pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">1. Controller of Personal Data Processing</h1>
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">1. Responsable du traitement des données personnelles
+          </h1>
         </div>
         <div class="w-full">
-          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >TreeConnect Sàrl, incorporated in Switzerland, is committed to protecting the personal data of its clients,
-            prospects, and partners. We offer digital HR solutions and related services primarily to small and
-            medium-sized enterprises. The processing of personal data is conducted in compliance with applicable data
-            protection regulations, including the Swiss Federal Act on Data Protection (nFADP). </p>
+          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >TreeConnect Sàrl, société enregistrée en Suisse, attache une grande importance à la
+            protection des données personnelles de ses clients, prospects et partenaires.
+            Nous proposons des solutions numériques RH ainsi que des services connexes,
+            principalement à destination des petites et moyennes entreprises. Le traitement des
+            données personnelles est effectué conformément à la législation applicable,
+            notamment la nouvelle Loi fédérale sur la protection des données (nLPD).
+             </p>
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-            This website may interact with third-party platforms, each of which applies its own terms of service and
-            privacy policy. Our use of cookies and similar technologies is also outlined below.
+              Notre site peut interagir avec des plateformes tierces, lesquelles appliquent leurs
+              propres conditions d’utilisation et politiques de confidentialité. L’usage des cookies et
+              technologies similaires est détaillé ci-dessous.
+              
         </p>
         <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-            Data controller contact details: <br>
-            TreeConnect Sàrl <br>
-            Boulevard Georges-Favon 14, 1204 Genève<br>
+          Coordonnées du responsable :
+          <br>
+          TreeConnect Sàrl <br>
+          Boulevard Georges-Favon 14, 1204 Genève<br>
             Email: <a href="" class="hover:underline">contact@treeconnect.ch</a>
         </p>
        
@@ -190,29 +232,32 @@
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">2. Sources of Data
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">2. Origine des données collectées
         </h1>
         </div>
         <div class="w-full">
-          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >We collect and process personal data provided directly by our clients, prospects, or business partners,
-            whether through our website, contracts, email exchanges, online forms, or other means of communication.
-            With consent, data may also be transmitted by partner organizations with which our clients are affiliated.
+          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >Les données personnelles sont principalement collectées directement auprès de nos
+            clients, prospects ou partenaires, via notre site web, nos contrats, échanges par e-mail,
+            formulaires en ligne ou tout autre moyen de communication.
+            Elles peuvent également être transmises, avec le consentement de la personne
+            concernée, par des organisations partenaires.
           </p>
         </div>
       </div>
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">3. Categories of Collected Data</h1>
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">3. Catégories de données collectées</h1>
         </div>
         <div class="w-full">
-          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >TreeConnect may collect the following categories of personal data: <br>
-            - Identity and contact details (name, address, phone number, email, etc.) <br>
-            - Professional data (employer, job title, professional background, certifications) <br>
-            - Billing and payment information
-            - Usage data related to our website and services (IP address, timestamps, pages visited) <br>
-            - Data necessary for access to and use of TreeConnect services<br>
-            - Any other data required to fulfill a contractual obligation or improve service delivery<br>
+          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >TreeConnect est susceptible de collecter les catégories de données suivantes : <br>
+            - Données d'identité et de contact (nom, adresse, téléphone, e-mail, etc.) <br>
+            - Données professionnelles (employeur, fonction, parcours, certifications) <br>
+            - Informations de facturation et de paiement
+            - Données d’utilisation du site et des services (adresse IP, date/heure, pages
+            visitées) <br>
+            - Données nécessaires à l’accès et à l’utilisation des services TreeConnect<br>
+            - Toute autre donnée utile à l’exécution du contrat ou à l’amélioration des services<br>
             
           </p>
          
@@ -221,13 +266,17 @@
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">4. Data Collection Channels
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">4. Canaux de collecte
         </h1>
         </div>
         <div class="w-full">
-          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >Data may be collected via forms on our website, through interactions with third-party platforms (e.g., payment
-            providers), or via email and other communications. In group service contexts, data about users may be
-            submitted by authorized company representatives.
+          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >Les données peuvent être collectées : <br>
+            - via les formulaires présents sur notre site,<br>
+            - par des plateformes tierces (notamment pour les paiements),<br>
+            - par e-mail ou d'autres échanges.<br>
+            Dans le cadre d’un service collectif, certaines données peuvent être communiquées par
+un représentant autorisé de l’entreprise cliente.
+
             
           </p>
          
@@ -236,17 +285,20 @@
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">5. Purpose of Data Processing</h1>
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">5. Finalités du traitement des données</h1>
         </div>
         <div class="w-full">
-          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >We process personal data for the following purposes: <br>
-            - To provide and improve our HR and administrative services<br>
-            - To manage customer accounts and contractual obligations<br>
-            - To issue certifications or usage reports where applicable<br>
-            - To offer tailored content, suggestions, or communications (including marketing, with consent)<br>
-            - To comply with legal and regulatory requirements<br>
-            - To analyze service performance and improve user experience<br>
-            Some anonymized, aggregated data may be used internally for analytics and service improvement.
+          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >Les données sont traitées dans les buts suivants : <br>
+            - Fourniture et amélioration de nos services RH et administratifs<br>
+            - Gestion des comptes clients et des obligations contractuelles<br>
+            - Délivrance de certifications ou rapports d’utilisation<br>
+            - Envoi de contenus ou communications ciblés (marketing avec consentement)<br>
+            - Respect des obligations légales et réglementaires<br>
+            - Analyse de la performance des services et amélioration de l’expérience
+            utilisateur<br>
+            Des données anonymisées et agrégées peuvent être utilisées à des fins d’analyse
+interne.
+
           </p>
          
         </div>
@@ -254,14 +306,17 @@
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">6. Consent
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">6. Consentement
         </h1>
         </div>
         <div class="w-full">
-          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >Personal data is processed based on the user's explicit consent or on the legal grounds necessary to fulfill a
-            contract or legitimate interest. <br>
-            Consent may be withdrawn at any time by contacting us at contact@treeconnect.ch. Withdrawal of consent
-            does not affect the legality of prior processing. However, it may limit access to certain services.
+          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >Le traitement des données repose sur le consentement explicite de l’utilisateur, sur
+            l’exécution contractuelle ou sur un intérêt légitime.
+             <br>
+             Le consentement peut être retiré à tout moment par e-mail à : <a href="" class="hover:underline">contact@treeconnect.ch.</a> 
+             Le retrait du consentement n’affecte pas la légalité des traitements antérieurs, mais
+             peut limiter l’accès à certains services.
+             
             
           </p>
          
@@ -270,17 +325,20 @@
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">7. Data Subject Rights</h1>
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">7. Droits des personnes concernées</h1>
         </div>
         <div class="w-full">
-          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >In accordance with the Swiss Federal Act on Data Protection, individuals have the right to: <br>
-            - Access their personal data <br>
-            - Rectify inaccurate data <br>
-            - Request deletion of their data <br>
-            - Restrict or object to certain processing activities <br>
-            - Request data portability or access to data by a third party <br>
-            To exercise these rights, TreeConnect may request verification of identity. Complaints may be submitted to
-            the Swiss Federal Data Protection and Information Commissioner (FDPIC).
+          <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >Conformément à la nLPD, toute personne dispose des droits suivants :
+            <br>
+            - Accès à ses données personnelles <br>
+            - Rectification de données inexactes <br>
+            - Suppression de ses données
+            <br>
+            - Limitation ou opposition à certains traitements <br>
+            - Portabilité des données ou transmission à un tiers <br>
+            L’exercice de ces droits peut nécessiter une vérification d’identité. En cas de
+réclamation, vous pouvez contacter le Préposé fédéral à la protection des données et à
+la transparence (PFPDT).
             
           </p>
          
@@ -289,51 +347,56 @@
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">8. Data Access and Confidentiality
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">8. Accès aux données et confidentialité
         </h1>
         </div>
         <div class="w-full">
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-            Access to personal data is strictly limited to authorized TreeConnect personnel and subcontractors necessary
-            to provide our services. All parties are contractually bound to respect confidentiality and data protection
-            obligations
+              Seules les personnes autorisées au sein de TreeConnect, ainsi que nos sous-traitants
+              strictement nécessaires à la prestation de services, ont accès aux données
+              personnelles. <br>
+              Tous les intervenants sont contractuellement tenus au respect de la confidentialité et
+des obligations de protection des données.
         </p>
         </div>
       </div>
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">9. Data Transfers
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">9. Transferts de données
         </h1>
         </div>
         <div class="w-full">
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-                Personal data may be transferred within Switzerland or to foreign jurisdictions, only where necessary for
-                service delivery or legal purposes. <br>
-                If data is transferred to countries that do not offer adequate protection under Swiss law, TreeConnect will
-                implement appropriate safeguards (e.g., Standard Contractual Clauses). No transfer is made without client
-                consent.
+              Les données peuvent être transférées en Suisse ou à l’étranger, uniquement si cela est
+              nécessaire à la prestation des services ou à des fins légales.
+              En cas de transfert vers un pays ne garantissant pas un niveau de protection adéquat,
+              TreeConnect applique les <span class="font-bold">clauses contractuelles types (SCC)</span> ou des garanties
+              équivalentes, et ne procède à aucun transfert sans consentement explicite.
             </p>
         </div>
       </div>
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">10. Subcontractors and Third-Party Tools
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">10. Sous-traitants et outils tiers
         </h1>
         </div>
         <div class="w-full">
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-                TreeConnect may use subcontractors for hosting, certification, communication, scheduling, and analytics
+              TreeConnect peut faire appel à des sous-traitants pour l’hébergement, les paiements, la
+              communication, la planification ou l’analyse.
+              Voici quelques prestataires utilisés :
+              
                 services. A non-exhaustive list includes: <br>
-                - Infomaniak: Website and email hosting (Switzerland) <br>
-                - AWS / S3: Secure data storage (EU / Switzerland)<br>
-                - Google Analytics: Usage statistics (USA - SCCs applied) <br>
-                - Stripe: Payment processing (USA - SCCs applied)<br>
-                - Calendly: Appointment scheduling (USA - SCCs applied)<br>
-                - Notion / Slack: Internal communication (EU / USA - SCCs applied)<br>
-                - Vercel: Front-end hosting (USA - SCCs applied)<br>
-                Only data necessary for the provision of services is shared with these providers.
+                - Infomaniak : hébergement du site et des e-mails (Suisse) <br>
+                - AWS / S3 : stockage sécurisé des données (UE / Suisse)<br>
+                - Google Analytics : statistiques d’usage (USA – SCC appliquées) <br>
+                - Stripe : traitement des paiements (USA – SCC appliquées)<br>
+                - Calendly : planification de rendez-vous (USA – SCC appliquées)<br>
+                - Notion / Slack : communication interne (UE / USA – SCC appliquées)<br>
+                - Vercel : hébergement front-end (USA – SCC appliquées)<br>
+                Seules les données strictement nécessaires sont partagées avec ces prestataires.
             </p>
          
         </div>
@@ -341,58 +404,69 @@
 
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">11. Data Retention
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">11. Durée de conservation
+
         </h1>
         </div>
         <div class="w-full">
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-                We retain personal data only as long as necessary for the purposes stated above or as required by law.
-                Users may request the deletion of their account and associated data at any time. Certificates or records
-                related to services provided may remain available for retrieval unless deletion is requested
+              Les données sont conservées aussi longtemps que nécessaire pour atteindre les
+              finalités décrites, ou pour répondre à des obligations légales.
+              L’utilisateur peut demander la suppression de son compte et des données associées à
+              tout moment. Certaines données liées aux services fournis (certificats, rapports)
+              peuvent être conservées sauf demande contraire.
             </p>
         </div>
       </div>
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">12. Consequences of Data Refusal
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">12. Conséquences d’un refus de transmission
+
         </h1>
         </div>
         <div class="w-full">
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-                Without the necessary personal data, TreeConnect may not be able to provide access to certain services,
-                including registration, certification, or account management. Refusal to share required information may result
-                in the inability to use our platform or tools.
+              En l’absence des données requises, TreeConnect ne pourra pas fournir certains
+              services, tels que l’accès à la plateforme, la création de compte, l’émission de
+              certificats ou la gestion d’un dossier client.
             </p>
         </div>
       </div>
       <div class=" pt-10">
         <div class=" w-full">
-          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">13. Cookie Policy
+          <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">13. Politique relative aux cookies
         </h1>
         </div>
         <div class="w-full">
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-                Our site uses cookies to improve functionality and personalize the user experience. <br>
-                Cookies may include: <br>
-                - Essential cookies for technical operations <br>
-                - Performance cookies for analytics <br>
-                - Marketing cookies for content optimization <br>
-                Users are informed upon their first visit and may accept or refuse cookies. Cookies may be disabled at any
-                time via browser settings
+              Notre site utilise des cookies pour améliorer les fonctionnalités et personnaliser
+              l’expérience utilisateur.
+               <br>
+               Ces cookies incluent notamment : <br>
+                - Cookies techniques essentiels <br>
+                - Cookies de performance (analyse d’usage)<br>
+                - Cookies marketing (contenu personnalisé)
+                <br>
+                L’utilisateur est informé lors de sa première visite et peut accepter ou refuser l’usage des
+cookies. Il est également possible de les désactiver à tout moment via les paramètres
+du navigateur.
             </p>
         </div>
       </div>
       <div class=" pt-10">
         <div class=" w-full">
           <h1 class="2xl:text-4xl lg:text-3xl text-2xl text-white">14. Contact
+
         </h1>
         </div>
         <div class="w-full">
             <p class="2xl:text-2xl xl:text-lg text-sm text-[#D3D3D3] pt-4 2xl:leading-10 xl:leading-7 leading-6" >
-                For any questions or requests regarding your personal data, please contact: <br>
-                TreeConnect Sàrl <br>
-                Boulevard Georges-Favon 14, 1204 Genève<br>
-                Email: <a href="" class="hover:underline"> contact@treeconnect.ch</a>
+              Pour toute question ou demande relative à vos données personnelles, vous pouvez nous
+              contacter :
+               <br>
+               TreeConnect Sàrl <br>
+               Boulevard Georges-Favon 14, 1204 Genève<br>
+               <i class="fa-solid fa-envelope"></i>&nbsp; Email: <a href="" class="hover:underline"> contact@treeconnect.ch</a>
             </p>
         </div>
       </div>
@@ -423,12 +497,12 @@
       </a>
       <a href="../french/story.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Notre histoire
       </a>
-      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Contact
+      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Nous Contacter
 
       </a>
       <a href="../french/privacy.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Politique de confidentialité et cookies
       </a>
-      <a href="../terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
+      <a href="../french/terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
 
       </a>
     </div>

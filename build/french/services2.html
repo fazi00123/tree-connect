@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services</title>
+    <title>TreeConnect-Nos services</title>
     <link rel="stylesheet" href="../build/../assets/css/style.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 </head>
@@ -45,28 +45,54 @@
         </li>
 
         <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Notre histoire</a></li>
-        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Contact</a></li>
+        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Nous Contacter</a></li>
       </ul>
     </div>
 
     <!-- Language + Login -->
     <div class="items-center hidden lg:block space-x-5">
       <div class="relative inline-block text-left">
-        <div class="relative inline-block text-left">
-          <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
-            <span id="currentLang">EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative inline-block text-left top-1">
+          <button onclick="toggleDropdown()" class="flex items-center">
+            <img id="currentFlag" src="../build/../assets/img/france.png" class="w-6 h-6" alt="flag">
+            <svg class="w-4 h-4 ml-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+        
+          <div id="dropdownMenu" class="hidden absolute mt-2 w-24 bg-[#3F6893] border border-[#3F6893] z-10">
             <ul class="py-1 text-sm text-gray-700 text-center">
-              <li><a href="../services2.html" onclick="setLanguage('EN')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">EN</a></li>
-              <li><a href="" onclick="setLanguage('FR')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">FR</a></li>
-             
+              <li>
+                <a href="../services2.html" onclick="event.preventDefault(); setFlag('../build/../assets/img/united-kingdom.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/united-kingdom.png" class="w-7" alt="England Flag">
+                </a>
+              </li>
+              <li>
+                <a href="#" onclick="event.preventDefault(); setFlag('../build/../assets/img/france.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/france.png" class="w-7" alt="France Flag">
+                </a>
+              </li>
             </ul>
           </div>
         </div>
+        
+        <script>
+          function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("hidden");
+          }
+        
+          function setFlag(flagPath, redirectUrl) {
+            document.getElementById("currentFlag").src = flagPath;
+            document.getElementById("dropdownMenu").classList.add("hidden");
+        
+            // Delay page redirect so flag updates first
+            setTimeout(function () {
+              window.location.href = redirectUrl;
+            }, 100);
+          }
+        </script>
+        
+        
       
       </div>
       <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full font-medium">Login</button>
@@ -113,23 +139,31 @@
       </li>
 
       <li><a href="../french/story.html" class="text-[#D3D3D3] text-base hover:text-white">Notre histoire</a></li>
-      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Contact</a></li>
-      <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full font-medium">Login</button></li>
-
-      <li class="text-center relative">
-        <button onclick="toggleMobileLangDropdown()" class="flex justify-center items-center gap-2 px-4 py-2 bg-white text-black border border-gray-300 rounded shadow">
-          <span id="currentLang">EN</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="mobileLangDropdown" class="hidden w-40 mt-2 bg-white border border-gray-200 rounded shadow-lg absolute z-50">
-          <ul class="py-1 text-sm text-gray-700">
-            <li><a href="../services2.html" onclick="setLanguage('EN')" class="block py-2 hover:bg-[#3F6893] hover:text-white">EN</a></li>
-            <li><a href="" onclick="setLanguage('FR')" class="block py-2 hover:bg-[#3F6893] hover:text-white">FR</a></li>
-          </ul>
-        </div>
+      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Nous Contacter</a></li>
+      <li><button class="text-[#D3D3D3]">Login</button></li>
+      <li class="flex justify-center space-x-4 mt-4">
+        <a href="../services2.html" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/united-kingdom.png', this.href)">
+          <img src="../build/../assets/img/united-kingdom.png" class="w-7 h-7" alt="UK Flag">
+        </a>
+        <a href="#" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/france.png', this.href)">
+          <img src="../build/../assets/img/france.png" class="w-7 h-7" alt="France Flag">
+        </a>
       </li>
+      <script>
+        function setFlagMobile(flagPath, redirectUrl) {
+          // Optionally change current flag (if you want to reflect it in desktop as well)
+          const flagImg = document.getElementById("currentFlag");
+          if (flagImg) flagImg.src = flagPath;
+      
+          // Close mobile menu
+          document.getElementById("mobile-menu").classList.add("hidden");
+      
+          // Redirect after slight delay
+          setTimeout(function () {
+            window.location.href = redirectUrl;
+          }, 100);
+        }
+      </script>
     </ul>
   </div>
   
@@ -327,9 +361,9 @@ compétences dans la durée.
     <section class="2xl:px-28 lg:px-10 px-5 2xl:pt-32 lg:pt-20 pt-10">
         <div class="flex justify-between">
         <div>
-            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Prêt à lancer votre activité plus intelligemment ?</h1>
-            <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Confiez-nous l’installation et la structuration de votre entreprise pendant que vous développez
-              votre vision.</p>
+            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Des RH pensées pour grandir avec vous?</h1>
+            <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Avec TreeConnect, vous gagnez en clarté, en temps et en impact — sans complexité.
+            </p>
             <div class="2xl:pt-16 pt-10" >
               <a href="https://calendly.com/treeconnect">
                 <button class="border border-white lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full text-white"> Parler à un expert</button>
@@ -367,12 +401,12 @@ compétences dans la durée.
       </a>
       <a href="../french/story.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Notre histoire
       </a>
-      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Contact
+      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Nous Contacter
 
       </a>
       <a href="../french/privacy.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Politique de confidentialité et cookies
       </a>
-      <a href="../terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
+      <a href="../french/terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
 
       </a>
     </div>

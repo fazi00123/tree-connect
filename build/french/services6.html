@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services</title>
+    <title>TreeConnect-Nos services</title>
     <link rel="stylesheet" href="../build/../assets/css/style.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 </head>
@@ -45,28 +45,54 @@
         </li>
 
         <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white">Notre histoire</a></li>
-        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Contact</a></li>
+        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Nous Contacter</a></li>
       </ul>
     </div>
 
     <!-- Language + Login -->
     <div class="items-center hidden lg:block space-x-5">
       <div class="relative inline-block text-left">
-        <div class="relative inline-block text-left">
-          <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
-            <span id="currentLang">EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative inline-block text-left top-1">
+          <button onclick="toggleDropdown()" class="flex items-center">
+            <img id="currentFlag" src="../build/../assets/img/france.png" class="w-6 h-6" alt="flag">
+            <svg class="w-4 h-4 ml-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+        
+          <div id="dropdownMenu" class="hidden absolute mt-2 w-24 bg-[#3F6893] border border-[#3F6893] z-10">
             <ul class="py-1 text-sm text-gray-700 text-center">
-              <li><a href="../services6.html" onclick="setLanguage('EN')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">EN</a></li>
-              <li><a href="" onclick="setLanguage('FR')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">FR</a></li>
-             
+              <li>
+                <a href="../services6.html" onclick="event.preventDefault(); setFlag('../build/../assets/img/united-kingdom.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/united-kingdom.png" class="w-7" alt="England Flag">
+                </a>
+              </li>
+              <li>
+                <a href="#" onclick="event.preventDefault(); setFlag('../build/../assets/img/france.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/france.png" class="w-7" alt="France Flag">
+                </a>
+              </li>
             </ul>
           </div>
         </div>
+        
+        <script>
+          function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("hidden");
+          }
+        
+          function setFlag(flagPath, redirectUrl) {
+            document.getElementById("currentFlag").src = flagPath;
+            document.getElementById("dropdownMenu").classList.add("hidden");
+        
+            // Delay page redirect so flag updates first
+            setTimeout(function () {
+              window.location.href = redirectUrl;
+            }, 100);
+          }
+        </script>
+        
+        
       
       </div>
       <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full font-medium">Login</button>
@@ -113,23 +139,31 @@
       </li>
 
       <li><a href="../french/story.html" class="text-[#D3D3D3] text-base hover:text-white">Notre histoire</a></li>
-      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Contact</a></li>
-      <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full font-medium">Login</button></li>
-
-      <li class="text-center relative">
-        <button onclick="toggleMobileLangDropdown()" class="flex justify-center items-center gap-2 px-4 py-2 bg-white text-black border border-gray-300 rounded shadow">
-          <span id="currentLang">EN</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="mobileLangDropdown" class="hidden w-40 mt-2 bg-white border border-gray-200 rounded shadow-lg absolute z-50">
-          <ul class="py-1 text-sm text-gray-700">
-            <li><a href="../services6.html" onclick="setLanguage('EN')" class="block py-2 hover:bg-[#3F6893] hover:text-white">EN</a></li>
-            <li><a href="" onclick="setLanguage('FR')" class="block py-2 hover:bg-[#3F6893] hover:text-white">FR</a></li>
-          </ul>
-        </div>
+      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Nous Contacter</a></li>
+      <li><button class="text-[#D3D3D3]">Login</button></li>
+      <li class="flex justify-center space-x-4 mt-4">
+        <a href="../services6.html" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/united-kingdom.png', this.href)">
+          <img src="../build/../assets/img/united-kingdom.png" class="w-7 h-7" alt="UK Flag">
+        </a>
+        <a href="#" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/france.png', this.href)">
+          <img src="../build/../assets/img/france.png" class="w-7 h-7" alt="France Flag">
+        </a>
       </li>
+      <script>
+        function setFlagMobile(flagPath, redirectUrl) {
+          // Optionally change current flag (if you want to reflect it in desktop as well)
+          const flagImg = document.getElementById("currentFlag");
+          if (flagImg) flagImg.src = flagPath;
+      
+          // Close mobile menu
+          document.getElementById("mobile-menu").classList.add("hidden");
+      
+          // Redirect after slight delay
+          setTimeout(function () {
+            window.location.href = redirectUrl;
+          }, 100);
+        }
+      </script>
     </ul>
   </div>
   
@@ -175,6 +209,7 @@
     <div class="">
       <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" >
         Marketing & Communication
+
       </h1>
       <!-- <div class="2xl:pt-16 pt-8" >
         <button class="hover:bg-[#3F6893] border border-white hover:border-[#3F6893] lg:text-lg text-base xl:px-10 font-medium xl:py-3 px-6 py-2 rounded-full text-white">
@@ -186,7 +221,10 @@
     <!-- Right Side -->
     <div class="">
       <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7" >
-        Our team works with you to create a strong, cohesive brand identity that resonates with your target audience. From logo design and messaging to selecting the best platforms for visibility, we ensure your brand is positioned for success. We leverage the power of digital marketing, social media, and strategic partnerships to amplify your presence and engage with the right customers, driving recognition and growth at every stage.
+        Nous vous aidons à construire une identité de marque forte et cohérente, qui parle vraiment à votre public.
+Du logo à la stratégie de contenu, en passant par le choix des bons canaux, nous mettons en place une communication claire, efficace et alignée sur vos objectifs.
+Nous mobilisons le meilleur du digital, des réseaux sociaux et des partenariats pour amplifier votre présence, toucher les bons clients et soutenir votre croissance à chaque
+étape.
       </p>
     </div>
 
@@ -209,33 +247,40 @@
 
 
         <div class="">
-            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">What We Do for You</h1>
+            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Ce que nous faisons pour vous
+            </h1>
         <div class="flex md:flex-row flex-col 2xl:gap-80 xl:gap-60 lg:gap-40 md:gap-20">
             <div class="xl:pt-16 pt-8 lg:w-1/2 w-full">
                 <div>
                     <img src="../build/../assets/img/brand.png"  alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Logo, branding and visual identity</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Boost your brand visibility with strategic marketing and clear communication.
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Logo, image de marque et identité visuelle
+                    </h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Faites émerger votre marque avec un positionnement clair, une identité forte et une
+                      communication cohérente.
+                      
                     </p>
                 </div>
                 <div class="xl:pt-20 pt-10">
                     <img src="../build/../assets/img/social.png"  alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Social media setup and management</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Build a strong online presence with professional social media setup and management.
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Création et gestion des réseaux sociaux</h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Développez une présence digitale solide avec une stratégie et une gestion professionnelle
+                      de vos réseaux sociaux.
                     </p>
                 </div>
             </div>
                 <div class="xl:pt-16 pt-8 lg:w-1/2 w-full">
                     <div>
                         <img src="../build/../assets/img/website.png"  alt="">
-                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Website and Google presence</h1>
-                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Strengthen your online visibility with a professional website and optimized Google presence.
+                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Site Internet et présence Google</h1>
+                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Renforcez votre visibilité en ligne avec un site professionnel et une présence
+                          optimisée sur Google.
                         </p>
                     </div>
                     <div class="xl:pt-20 pt-10">
                         <img src="../build/../assets/img/seo.png"  alt="">
-                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >SEO and advertising campaigns</h1>
-                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Drive traffic and generate leads with targeted SEO and advertising campaigns.
+                        <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Référencement (SEO) et campagnes publicitaires</h1>
+                        <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Générez du trafic qualifié et des opportunités grâce à des campagnes ciblées et
+                          un référencement efficace.
                         </p>
                     </div>
                 </div>
@@ -250,8 +295,9 @@
             </div>
         <div class="bg-[#3F6893] xl:p-10 p-5 rounded-2xl">
             <div class=" w-full pt-4 md:pt-0">
-                <h1 class="text-white 2xl:text-4xl lg:text-3xl text-2xl" >Why It Matters</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[44px] lg:leading-8 leading-7" >Launching a company takes time, precision, and local knowledge. We handle the complex steps, so you can focus on your project.</p>
+                <h1 class="text-white 2xl:text-4xl lg:text-3xl text-2xl" >Pourquoi c’est essentiel</h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[44px] lg:leading-8 leading-7" >Faire connaître votre entreprise demande du temps, de la précision, et une vraie lecture du terrain.
+                  Nous prenons en charge les étapes complexes, pour que vous puissiez vous concentrer sur ce qui compte : faire avancer votre projet.</p>
                 <!-- <div class="2xl:pt-16 pt-8" >
                     <button class="border border-white lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full text-white"> How It Works</button>
                   </div> -->
@@ -263,19 +309,21 @@
       <section class="2xl:px-28 lg:px-10 px-5">
 
       <div class="2xl:pt-36 lg:pt-24 pt-10">
-        <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" >Benefits for You</h1>
+        <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white" >Bénéfices pour vous</h1>
     <div class="flex md:flex-row flex-col 2xl:gap-80 xl:gap-60 lg:gap-40 md:gap-20">
         <div class="xl:pt-16 pt-8 lg:w-1/2 w-full">
             <div>
                 <img src="../build/../assets/img/visible.png"  alt="">
-                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >A professional, visible brand</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Establish a professional, visible brand that stands out in the market.
+                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Une identité claire et professionnelle
+                </h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Positionnez-vous avec une identité forte, cohérente et visible sur votre marché.
                 </p>
             </div>
             <div class="xl:pt-20 pt-10">
                 <img src="../build/../assets/img/right.png"  alt="">
-                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >The right message to the right audience</h1>
-                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Deliver the right message to the right audience with precision and purpose.
+                <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Le bon message, au bon public
+                </h1>
+                <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7 " >Faites passer vos idées aux bonnes personnes, avec justesse et impact.
                 </p>
             </div>
         </div>
@@ -283,14 +331,17 @@
                 
                 <div>
                     <img src="../build/../assets/img/lead.png"  alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >More trust, more leads, more growth</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Build more trust, generate more leads, and fuel more growth.
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Plus de confiance, plus de prospects, plus de croissance</h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Générez plus d’opportunités en renforçant votre crédibilité et votre
+                      présence.
+                      
                     </p>
                 </div>
                 <div class="xl:pt-20 pt-10">
                     <img src="../build/../assets/img/one.png" alt="">
-                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >One partner for your full marketing strategy</h1>
-                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Your one partner for a comprehensive, results-driven marketing strategy.
+                    <h1 class="2xl:text-2xl font-bold xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Un seul partenaire pour toute votre stratégie marketing</h1>
+                    <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-2 2xl:leading-[40px] lg:leading-8 leading-7" >Votre accompagnement complet et orienté résultats, de l’image à la
+                      conversion.
                     </p>
                 </div>
             </div>
@@ -304,11 +355,14 @@
     <section class="2xl:px-28 lg:px-10 px-5 2xl:pt-32 lg:pt-20 pt-10">
         <div class="flex justify-between">
         <div>
-            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Ready to Launch Smarter?</h1>
-            <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Let TreeConnect handle the setup while you focus on growing your vision.</p>
+            <h1 class="2xl:text-[70px] lg:text-5xl text-4xl text-white">Donnez à votre marque la visibilité qu’elle mérite?</h1>
+            <p class="2xl:text-[22px] xl:text-lg text-base text-[#D3D3D3] pt-4 2xl:leading-[44px] lg:leading-8 leading-7 " >Confiez votre image, vos messages et votre présence
+              digitale à nos experts. TreeConnect vous accompagne avec
+              méthode pour bâtir une identité forte, alignée et durable.</p>
             <div class="2xl:pt-16 pt-10" >
               <a href="https://calendly.com/treeconnect">
-                <button class="border border-white lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full text-white"> Talk to an Expert</button>
+                <button class="border border-white lg:text-lg text-base xl:px-10 xl:py-3 px-6 py-2 rounded-full text-white">Parler à un expert
+                </button>
               </a>
               </div>
             </div>
@@ -343,12 +397,12 @@
       </a>
       <a href="../french/story.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Notre histoire
       </a>
-      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Contact
+      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Nous Contacter
 
       </a>
       <a href="../french/privacy.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Politique de confidentialité et cookies
       </a>
-      <a href="../terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
+      <a href="../french/terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
 
       </a>
     </div>

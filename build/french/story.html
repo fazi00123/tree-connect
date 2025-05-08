@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story</title>
+    <title>TreeConnect-Notre histoire</title>
     <link rel="stylesheet" href="../build/../assets/css/style.css">
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 </head>
@@ -45,28 +45,54 @@
         </li>
 
         <li><a href="story.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white active">Notre histoire</a></li>
-        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Contact</a></li>
+        <li><a href="contact.html" class="text-[#D3D3D3] xl:text-lg text-base hover:text-white ">Nous Contacter</a></li>
       </ul>
     </div>
 
     <!-- Language + Login -->
     <div class="items-center hidden lg:block space-x-5">
       <div class="relative inline-block text-left">
-        <div class="relative inline-block text-left">
-          <button onclick="toggleDropdown()" class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded shadow">
-            <span id="currentLang">EN</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="relative inline-block text-left top-1">
+          <button onclick="toggleDropdown()" class="flex items-center">
+            <img id="currentFlag" src="../build/../assets/img/france.png" class="w-6 h-6" alt="flag">
+            <svg class="w-4 h-4 ml-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          <div id="dropdownMenu" class="hidden absolute mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-10">
+        
+          <div id="dropdownMenu" class="hidden absolute mt-2 w-24 bg-[#3F6893] border border-[#3F6893] z-10">
             <ul class="py-1 text-sm text-gray-700 text-center">
-              <li><a href="../story.html" onclick="setLanguage('EN')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">EN</a></li>
-              <li><a href="" onclick="setLanguage('FR')" class="block hover:text-white px-4 py-2 hover:bg-[#3F6893]">FR</a></li>
-             
+              <li>
+                <a href="../story.html" onclick="event.preventDefault(); setFlag('../build/../assets/img/united-kingdom.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/united-kingdom.png" class="w-7" alt="England Flag">
+                </a>
+              </li>
+              <li>
+                <a href="#" onclick="event.preventDefault(); setFlag('../build/../assets/img/france.png', this.href)" class="block flex justify-center hover:text-white px-4 py-2 hover:bg-white">
+                  <img src="../build/../assets/img/france.png" class="w-7" alt="France Flag">
+                </a>
+              </li>
             </ul>
           </div>
         </div>
+        
+        <script>
+          function toggleDropdown() {
+            document.getElementById("dropdownMenu").classList.toggle("hidden");
+          }
+        
+          function setFlag(flagPath, redirectUrl) {
+            document.getElementById("currentFlag").src = flagPath;
+            document.getElementById("dropdownMenu").classList.add("hidden");
+        
+            // Delay page redirect so flag updates first
+            setTimeout(function () {
+              window.location.href = redirectUrl;
+            }, 100);
+          }
+        </script>
+        
+        
       
       </div>
       <button class="text-[#FFFFFF] xl:text-lg text-base py-2 px-10 border border-white rounded-full font-medium">Login</button>
@@ -113,23 +139,31 @@
       </li>
 
       <li><a href="../french/story.html" class="text-[#D3D3D3] text-base hover:text-white active">Notre histoire</a></li>
-      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Contact</a></li>
-      <li><button class="mt-3 text-white py-2 px-10 border border-white rounded-full font-medium">Login</button></li>
-
-      <li class="text-center relative">
-        <button onclick="toggleMobileLangDropdown()" class="flex justify-center items-center gap-2 px-4 py-2 bg-white text-black border border-gray-300 rounded shadow">
-          <span id="currentLang">EN</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="mobileLangDropdown" class="hidden w-40 mt-2 bg-white border border-gray-200 rounded shadow-lg absolute z-50">
-          <ul class="py-1 text-sm text-gray-700">
-            <li><a href="../story.html" onclick="setLanguage('EN')" class="block py-2 hover:bg-[#3F6893] hover:text-white">EN</a></li>
-            <li><a href="" onclick="setLanguage('FR')" class="block py-2 hover:bg-[#3F6893] hover:text-white">FR</a></li>
-          </ul>
-        </div>
+      <li><a href="../french/contact.html" class="text-[#D3D3D3] text-base hover:text-white ">Nous Contacter</a></li>
+      <li><button class="text-[#D3D3D3]">Login</button></li>
+      <li class="flex justify-center space-x-4 mt-4">
+        <a href="../story.html" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/united-kingdom.png', this.href)">
+          <img src="../build/../assets/img/united-kingdom.png" class="w-7 h-7" alt="UK Flag">
+        </a>
+        <a href="#" onclick="event.preventDefault(); setFlagMobile('../build/../assets/img/france.png', this.href)">
+          <img src="../build/../assets/img/france.png" class="w-7 h-7" alt="France Flag">
+        </a>
       </li>
+      <script>
+        function setFlagMobile(flagPath, redirectUrl) {
+          // Optionally change current flag (if you want to reflect it in desktop as well)
+          const flagImg = document.getElementById("currentFlag");
+          if (flagImg) flagImg.src = flagPath;
+      
+          // Close mobile menu
+          document.getElementById("mobile-menu").classList.add("hidden");
+      
+          // Redirect after slight delay
+          setTimeout(function () {
+            window.location.href = redirectUrl;
+          }, 100);
+        }
+      </script>
     </ul>
   </div>
   
@@ -182,29 +216,56 @@
         <div class="xl:pt-24 pt-10 flex md:flex-row flex-col gap-5">
             <div class="md:w-1/3 w-full bg-[#3F6893] 2xl:p-12 md:p-6 p-8 rounded-2xl " >
                 <img src="../build/../assets/img/moment.png" alt="">
-                <h1 class="text-white 2xl:text-3xl lg:text-xl text-lg pt-4">Ce qui a tout changé</h1>
-                <p class="text-[#D3D3D3] 2xl:text-xl lg:text-base text-sm 2xl:leading-8 lg:leading-7 leading-6 pt-16">En menant des projets dans des secteurs variés, nous avons rapidement compris ce qui fait réussir
-                  une entreprise… et ce qui la freine.
-                  Les outils utilisés par les grandes structures ne sont pas toujours complexes. S’ils sont bien
-                  pensés et simplifiés, ils peuvent devenir de puissants leviers pour les PME.
-                  C’est cette prise de conscience qui a donné naissance à TreeConnect : une approche venue du
-                  terrain, pensée pour renforcer les équipes, et conçue pour croître sans complexité.</p>
+                <h1 class="text-white 2xl:text-3xl lg:text-xl text-lg pt-4">Tout a commencé par une évidence</h1>
+                <p class="text-[#D3D3D3] 2xl:text-xl lg:text-base text-sm 2xl:leading-8 lg:leading-7 leading-6 pt-16">Sur le terrain, d’un secteur à l’autre, nous avons
+                  vu la même réalité se répéter.
+                  Dans les grandes entreprises, chaque fonction
+                  est portée par un expert. Les outils sont
+                  choisis, optimisés, intégrés avec méthode.
+                  Dans les petites structures, ce sont souvent
+                  une ou deux personnes qui portent tout : la
+                  stratégie, l’administratif, les outils, la
+                  communication. Elles courent après le temps,
+                  s’éloignent de leur cœur de métier, et perdent
+                  en clarté comme en efficacité.
+                  C’est cette prise de conscience qui a donné
+                  naissance à TreeConnect : une approche venue
+                  du terrain, pensée pour renforcer les équipes,
+                  et conçue pour croître sans complexité.</p>
             </div>
             <div class="md:w-1/3 w-full bg-[#3F6893] 2xl:p-12 md:p-6 p-8 rounded-2xl " >
                 <img src="../build/../assets/img/light.png" alt="">
                 <h1 class="text-white 2xl:text-3xl lg:text-xl text-lg pt-4">Un parcours entre deux mondes</h1>
-                <p class="text-[#D3D3D3] 2xl:text-xl lg:text-base text-sm 2xl:leading-8 lg:leading-7 leading-6 pt-16">Notre fondateur a passé plus de 15 ans entre deux univers : les coulisses des grandes entreprises
-                  et le quotidien des petites structures.
-                  Il y a vu ce qui fonctionne, ce qui freine, et surtout ce qui manque.
-                  De cette double expérience est née une conviction : les PME méritent elles aussi des outils
-                  simples, efficaces et de vrais experts pour grandir.</p>
+                <p class="text-[#D3D3D3] 2xl:text-xl lg:text-base text-sm 2xl:leading-8 lg:leading-7 leading-6 pt-16">Pendant quinze ans, notre fondateur a évolué
+                  des deux côtés du miroir.
+                  Il a accompagné des milliers de collaborateurs
+                  dans le secteur public, puis piloté des projets
+                  stratégiques au sein de groupes bancaires
+                  internationaux, en pleine transformation. En
+                  parallèle, il a créé et dirigé plusieurs PME.
+                  Deux univers. Deux rythmes. Deux réalités.
+                  C’est en naviguant entre ces mondes qu’il a
+                  compris : ce ne sont pas les ambitions qui
+                  manquent aux petites structures, mais les
+                  outils et les experts capables de les faire
+                  grandir. </p>
             </div>
             <div class="md:w-1/3 w-full bg-[#3F6893] 2xl:p-12 md:p-6 p-8 rounded-2xl ">
                 <img src="../build/../assets/img/method.png" alt="">
                 <h1 class="text-white 2xl:text-3xl lg:text-xl text-lg pt-4">L’approche TreeConnect</h1>
-                <p class="text-[#D3D3D3] 2xl:text-xl lg:text-base text-sm 2xl:leading-8 lg:leading-7 leading-6 pt-16">Chez TreeConnect, nous réunissons des spécialistes de chaque domaine clé de l’entreprise.
-                  Chacun apporte son expertise, mais aussi sa capacité à innover, à simplifier, et à adapter les
-                  meilleures pratiques des grandes organisations aux réalités concrètes des PME.</p>
+                <p class="text-[#D3D3D3] 2xl:text-xl lg:text-base text-sm 2xl:leading-8 lg:leading-7 leading-6 pt-16">TreeConnect, c’est une équipe d’experts issus
+                  des grandes structures, réunis pour servir les
+                  petites. Chacun apporte sa maîtrise de son
+                  domaine (RH, organisation, finance, IT,
+                  communication ) mais surtout une capacité à
+                  simplifier, à adapter, à rendre accessible ce qui
+                  ne l’était pas.
+                  Notre mission : offrir aux PME les outils, les
+                  méthodes et les compétences qui font avancer
+                  les grandes, sans complexité inutile, et avec un
+                  seul objectif en tête : faire grandir les équipes
+                  et libérer les dirigeants de la complexité pour
+                  qu’ils se concentrent sur l’essentiel.</p>
             </div>
         </div>
         <div class="py-5 flex justify-center">
@@ -249,12 +310,12 @@
       </a>
       <a href="../french/story.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Notre histoire
       </a>
-      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Contact
+      <a href="../french/contact.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Nous Contacter
 
       </a>
       <a href="../french/privacy.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Politique de confidentialité et cookies
       </a>
-      <a href="../terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
+      <a href="../french/terms.html" class="text-[#D3D3D3] text-sm font-light hover:underline">Conditions générales
 
       </a>
     </div>
